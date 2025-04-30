@@ -1,0 +1,944 @@
+
+    /* BASIC */
+
+    html {
+        background-color: #56baed;
+    }
+
+    body {
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+    }
+
+    a {
+        color: #92badd;
+        display:inline-block;
+        text-decoration: none;
+        font-weight: 400;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        display:inline-block;
+        margin: 40px 8px 10px 8px;
+        color: #cccccc;
+    }
+
+
+    /* STRUCTURE */
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        min-height: 100%;
+        padding: 20px;
+    }
+
+    #formContent {
+        -webkit-border-radius: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 10px;
+        background: #fff;
+        padding: 30px;
+        width: 90%;
+        max-width: 450px;
+        position: relative;
+        padding: 0px;
+        -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+        box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+        text-align: center;
+    }
+
+    #formFooter {
+        background-color: #f6f6f6;
+        border-top: 1px solid #dce8f1;
+        padding: 25px;
+        text-align: center;
+        -webkit-border-radius: 0 0 10px 10px;
+        border-radius: 0 0 10px 10px;
+    }
+
+
+    /* TABS */
+
+    h2.inactive {
+        color: #cccccc;
+    }
+
+    h2.active {
+        color: #0d0d0d;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+
+    /* FORM TYPOGRAPHY*/
+
+    input[type=button], input[type=submit], input[type=reset], button.logIn  {
+        background-color: #56baed;
+        border: none;
+        color: white;
+        padding: 15px 80px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 13px;
+        -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        margin: 5px 20px 40px 20px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover, button.logIn:hover  {
+        background-color: #39ace7;
+    }
+
+    input[type=button]:active, input[type=submit]:active, input[type=reset]:active, button.logIn:active  {
+        -moz-transform: scale(0.95);
+        -webkit-transform: scale(0.95);
+        -o-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
+    }
+
+    input {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px;
+        width: 85%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    input:focus {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+    input::placeholder {
+        color: #cccccc;
+    }
+
+
+    /* ANIMATIONS */
+
+    /* Simple CSS3 Fade-in-down Animation */
+    .fadeInDown {
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    /* Simple CSS3 Fade-in Animation */
+    @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+    .fadeIn {
+        opacity:0;
+        -webkit-animation:fadeIn ease-in 1;
+        -moz-animation:fadeIn ease-in 1;
+        animation:fadeIn ease-in 1;
+
+        -webkit-animation-fill-mode:forwards;
+        -moz-animation-fill-mode:forwards;
+        animation-fill-mode:forwards;
+
+        -webkit-animation-duration:1s;
+        -moz-animation-duration:1s;
+        animation-duration:1s;
+    }
+
+    .fadeIn.first {
+        -webkit-animation-delay: 0.4s;
+        -moz-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+        margin-bottom: 45px;
+    }
+
+    .fadeIn.second {
+        -webkit-animation-delay: 0.6s;
+        -moz-animation-delay: 0.6s;
+        animation-delay: 0.6s;
+    }
+
+    .fadeIn.third {
+        -webkit-animation-delay: 0.8s;
+        -moz-animation-delay: 0.8s;
+        animation-delay: 0.8s;
+    }
+
+    .fadeIn.fourth {
+        -webkit-animation-delay: 1s;
+        -moz-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+
+    /* Simple CSS3 Fade-in Animation */
+    .underlineHover:after {
+        display: block;
+        left: 0;
+        bottom: -10px;
+        width: 0;
+        height: 2px;
+        background-color: #56baed;
+        content: "";
+        transition: width 0.2s;
+    }
+
+    .underlineHover:hover {
+        color: #0d0d0d;
+    }
+
+    .underlineHover:hover:after{
+        width: 100%;
+    }
+
+
+    /* OTHERS */
+
+    *:focus {
+        outline: none;
+    }
+
+    #icon {
+        width:50%;
+    }
+
+
+    /*LOG-IN*/
+    .icon-user-logIn{
+        margin-top: 20px;
+        width: 70px!important ;
+        height: 70px;
+    }
+
+    .elementHide{
+        display: none;
+    }
+
+    .footer_write{
+        position: fixed;
+        height: 60px;
+        max-height: 100px;
+        bottom: 0;
+        width: 100%;
+    }
+    .icon-textarea{
+        color: #5e72e4!important;
+    }
+
+
+    /*Estilos para la interfaz de mensajes*/
+
+    .div-textarea-send-message, .textarea-send-message{
+        width: 100%;
+        border: 1px solid #9e9e9e;
+        border-radius: 40px;
+    }
+
+    /*Reply*/
+
+    .reply {
+        height: 100%;
+        width: 100%;
+        background-color: #f5f1ee;
+        padding: 10px 5px 10px 5px !important;
+        margin: 0 !important;
+        z-index: 1000;
+    }
+
+    .reply-emojis {
+        padding: 5px !important;
+    }
+
+    .reply-emojis i {
+        text-align: center;
+        padding: 5px 5px 5px 5px !important;
+        color: #93918f;
+        cursor: pointer;
+    }
+
+    .reply-recording {
+        padding: 5px !important;
+    }
+
+    .reply-recording i {
+        text-align: center;
+        padding: 5px !important;
+        color: #93918f;
+        cursor: pointer;
+    }
+
+    .reply-send {
+        padding: 5px !important;
+    }
+
+    .reply-send i {
+        text-align: center;
+        padding: 5px !important;
+        color: #93918f;
+        cursor: pointer;
+    }
+
+    .reply-main {
+        padding: 2px 5px !important;
+    }
+
+    .reply-main textarea {
+        width: 100%;
+        resize: none;
+        overflow: hidden;
+        padding: 5px !important;
+        outline: none;
+        border: none;
+        text-indent: 5px;
+        box-shadow: none;
+        height: 100%;
+        font-size: 16px;
+    }
+
+    .reply-main textarea:focus {
+        outline: none;
+        border: none;
+        text-indent: 5px;
+        box-shadow: none;
+    }
+
+    @media screen and (max-width: 700px) {
+        /*Conversation*/
+        .conversation {
+            padding: 0 !important;
+            margin: 0 !important;
+            height: 100%;
+            /*width: 100%;*/
+            border-left: 1px solid rgba(0, 0, 0, .08);
+            /*overflow-y: auto;*/
+        }
+        .message {
+            height: calc(100% - 140px);
+        }
+        .reply {
+            height: 70px;
+        }
+        .reply-emojis {
+            padding: 5px 0 !important;
+        }
+        .reply-emojis i {
+            padding: 5px 2px !important;
+            font-size: 1.8em !important;
+        }
+        .reply-main {
+            padding: 2px 8px !important;
+        }
+        .reply-main textarea {
+            padding: 8px !important;
+            font-size: 18px;
+        }
+        .reply-recording {
+            padding: 5px 0 !important;
+        }
+        .reply-recording i {
+            padding: 5px 0 !important;
+            font-size: 1.8em !important;
+        }
+        .reply-send {
+            padding: 5px 0 !important;
+        }
+        .reply-send i {
+            padding: 5px 2px 5px 0 !important;
+            font-size: 1.8em !important;
+        }
+    }
+
+
+
+    /*ESTILOS PERSONALIZADOS*/
+
+        /*Header*/
+        .header-container{
+            padding-top: 2rem !important;
+            padding-bottom: 3rem !important;
+        }
+
+    .swal-wide{
+        width:1050px !important;
+    }
+
+
+    /* Estilo del switch personalizado */
+    .custom-switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .custom-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .custom-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .custom-slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .custom-slider {
+        background-color: #28a745;
+    }
+
+    input:checked + .custom-slider:before {
+        transform: translateX(26px);
+    }
+
+    .custom-switch-label {
+        margin-left: 10px;
+    }
+    /* BASIC */
+
+    html {
+        background-color: #56baed;
+    }
+
+    body {
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+    }
+
+    a {
+        color: #92badd;
+        display:inline-block;
+        text-decoration: none;
+        font-weight: 400;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        display:inline-block;
+        margin: 40px 8px 10px 8px;
+        color: #cccccc;
+    }
+
+
+    /* STRUCTURE */
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        min-height: 100%;
+        padding: 20px;
+    }
+
+    #formContent {
+        -webkit-border-radius: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 10px;
+        background: #fff;
+        padding: 30px;
+        width: 90%;
+        max-width: 450px;
+        position: relative;
+        padding: 0px;
+        -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+        box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+        text-align: center;
+    }
+
+    #formFooter {
+        background-color: #f6f6f6;
+        border-top: 1px solid #dce8f1;
+        padding: 25px;
+        text-align: center;
+        -webkit-border-radius: 0 0 10px 10px;
+        border-radius: 0 0 10px 10px;
+    }
+
+
+    /* TABS */
+
+    h2.inactive {
+        color: #cccccc;
+    }
+
+    h2.active {
+        color: #0d0d0d;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+
+    /* FORM TYPOGRAPHY*/
+
+    input[type=button], input[type=submit], input[type=reset], button.logIn  {
+        background-color: #56baed;
+        border: none;
+        color: white;
+        padding: 15px 80px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 13px;
+        -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        margin: 5px 20px 40px 20px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover, button.logIn:hover  {
+        background-color: #39ace7;
+    }
+
+    input[type=button]:active, input[type=submit]:active, input[type=reset]:active, button.logIn:active  {
+        -moz-transform: scale(0.95);
+        -webkit-transform: scale(0.95);
+        -o-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
+    }
+
+    input {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px;
+        width: 85%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    input:focus {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+    input::placeholder {
+        color: #cccccc;
+    }
+
+
+    /* ANIMATIONS */
+
+    /* Simple CSS3 Fade-in-down Animation */
+    .fadeInDown {
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    /* Simple CSS3 Fade-in Animation */
+    @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+    .fadeIn {
+        opacity:0;
+        -webkit-animation:fadeIn ease-in 1;
+        -moz-animation:fadeIn ease-in 1;
+        animation:fadeIn ease-in 1;
+
+        -webkit-animation-fill-mode:forwards;
+        -moz-animation-fill-mode:forwards;
+        animation-fill-mode:forwards;
+
+        -webkit-animation-duration:1s;
+        -moz-animation-duration:1s;
+        animation-duration:1s;
+    }
+
+    .fadeIn.first {
+        -webkit-animation-delay: 0.4s;
+        -moz-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+        margin-bottom: 45px;
+    }
+
+    .fadeIn.second {
+        -webkit-animation-delay: 0.6s;
+        -moz-animation-delay: 0.6s;
+        animation-delay: 0.6s;
+    }
+
+    .fadeIn.third {
+        -webkit-animation-delay: 0.8s;
+        -moz-animation-delay: 0.8s;
+        animation-delay: 0.8s;
+    }
+
+    .fadeIn.fourth {
+        -webkit-animation-delay: 1s;
+        -moz-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+
+    /* Simple CSS3 Fade-in Animation */
+    .underlineHover:after {
+        display: block;
+        left: 0;
+        bottom: -10px;
+        width: 0;
+        height: 2px;
+        background-color: #56baed;
+        content: "";
+        transition: width 0.2s;
+    }
+
+    .underlineHover:hover {
+        color: #0d0d0d;
+    }
+
+    .underlineHover:hover:after{
+        width: 100%;
+    }
+
+
+    /* OTHERS */
+
+    *:focus {
+        outline: none;
+    }
+
+
+    /*LOG-IN*/
+    .icon-user-logIn{
+        margin-top: 20px;
+        width: 70px!important ;
+        height: 70px;
+    }
+
+    .elementHide{
+        display: none;
+    }
+
+    .footer_write{
+        position: fixed;
+        height: 60px;
+        max-height: 100px;
+        bottom: 0;
+        width: 100%;
+    }
+    .icon-textarea{
+        color: #5e72e4!important;
+    }
+
+
+    /*Estilos para la interfaz de mensajes*/
+
+    .div-textarea-send-message, .textarea-send-message{
+        width: 100%;
+        border: 1px solid #9e9e9e;
+        border-radius: 40px;
+    }
+
+    /*Reply*/
+
+    .reply {
+        height: 100%;
+        width: 100%;
+        background-color: #f5f1ee;
+        padding: 10px 5px 10px 5px !important;
+        margin: 0 !important;
+        z-index: 1000;
+    }
+
+    .reply-emojis {
+        padding: 5px !important;
+    }
+
+    .reply-emojis i {
+        text-align: center;
+        padding: 5px 5px 5px 5px !important;
+        color: #93918f;
+        cursor: pointer;
+    }
+
+    .reply-recording {
+        padding: 5px !important;
+    }
+
+    .reply-recording i {
+        text-align: center;
+        padding: 5px !important;
+        color: #93918f;
+        cursor: pointer;
+    }
+
+    .reply-send {
+        padding: 5px !important;
+    }
+
+    .reply-send i {
+        text-align: center;
+        padding: 5px !important;
+        color: #93918f;
+        cursor: pointer;
+    }
+
+    .reply-main {
+        padding: 2px 5px !important;
+    }
+
+    .reply-main textarea {
+        width: 100%;
+        resize: none;
+        overflow: hidden;
+        padding: 5px !important;
+        outline: none;
+        border: none;
+        text-indent: 5px;
+        box-shadow: none;
+        height: 100%;
+        font-size: 16px;
+    }
+
+    .reply-main textarea:focus {
+        outline: none;
+        border: none;
+        text-indent: 5px;
+        box-shadow: none;
+    }
+
+    @media screen and (max-width: 700px) {
+        /*Conversation*/
+        .conversation {
+            padding: 0 !important;
+            margin: 0 !important;
+            height: 100%;
+            /*width: 100%;*/
+            border-left: 1px solid rgba(0, 0, 0, .08);
+            /*overflow-y: auto;*/
+        }
+        .message {
+            height: calc(100% - 140px);
+        }
+        .reply {
+            height: 70px;
+        }
+        .reply-emojis {
+            padding: 5px 0 !important;
+        }
+        .reply-emojis i {
+            padding: 5px 2px !important;
+            font-size: 1.8em !important;
+        }
+        .reply-main {
+            padding: 2px 8px !important;
+        }
+        .reply-main textarea {
+            padding: 8px !important;
+            font-size: 18px;
+        }
+        .reply-recording {
+            padding: 5px 0 !important;
+        }
+        .reply-recording i {
+            padding: 5px 0 !important;
+            font-size: 1.8em !important;
+        }
+        .reply-send {
+            padding: 5px 0 !important;
+        }
+        .reply-send i {
+            padding: 5px 2px 5px 0 !important;
+            font-size: 1.8em !important;
+        }
+    }
+
+
+
+    /*ESTILOS PERSONALIZADOS*/
+
+    /*Header*/
+    .header-container{
+        padding-top: 2rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .swal-wide{
+        width:1050px !important;
+    }
+    .loader-page {
+        position: fixed;
+        z-index: 25000;
+        background: rgb(255, 255, 255);
+        left: 0px;
+        top: 0px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:all .3s ease;
+    }
+    .loader-page::before {
+        content: "";
+        position: absolute;
+        border: 2px solid #2eaddf;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        border-left: 2px solid #80cf6c;
+        border-top: 2px solid #3e7cbe;
+        animation: rotarload 1s linear infinite;
+        transform: rotate(0deg);
+    }
+    @keyframes rotarload {
+        0%   {transform: rotate(0deg)}
+        100% {transform: rotate(360deg)}
+    }
+    .loader-page::after {
+
+        content: "";
+        position: absolute;
+        border: 2px solid #2eaddf;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        border-left: 2px solid #80cf6c;
+        border-top: 2px solid #3e7cbe;
+        animation: rotarload 1s ease-out infinite;
+        transform: rotate(0deg);
+    }
+
+    .css-dashboard-logo{
+        width: 208px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

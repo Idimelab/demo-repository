@@ -1,0 +1,119 @@
+{# views/admin/layout/sidebar_admin.twig #}
+{# Asume que este bloque se incluye en tu plantilla base donde definiste {% block slidebar %} #}
+
+<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+    <div class="container-fluid">
+
+        {# Toggler (para vista móvil) #}
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        {# Brand/Logo #}
+        <a class="navbar-brand pt-0 text-center" href="{{ general.full_web_url }}?class=dashboard"> {# Link al dashboard #}
+            {# Usa la URL dinámica del logo si la pasas en 'general.logo', sino un placeholder #}
+            {% if general.logo %}
+                <img src="{{ general.full_web_url }}scripts/obtener_archivo.php?directory=profile&name_file={{ general.logo }}"
+                     class="navbar-brand-img img rounded-circle img-thumbnail" alt="Logo Laboratorio" style="max-height: 8rem;">
+                {# Ajusta max-height según necesites #}
+            {% else %}
+                {# Placeholder si no hay logo #}
+                <img src="https://via.placeholder.com/150x150?text=LOGO" class="navbar-brand-img img rounded-circle" alt="Logo" style="max-height: 8rem;">
+            {% endif %}
+        </a>
+
+        {# Collapse wrapper #}
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+
+            {# Collapse header (para vista móvil) #}
+            <div class="navbar-collapse-header d-md-none">
+                <div class="row">
+                    <div class="col-6 collapse-brand">
+                        <a href="{{ general.full_web_url }}?class=dashboard">
+                            {# Logo pequeño para móvil si es diferente #}
+                            <img src="{{ general.full_web_url }}scripts/obtener_archivo.php?directory=profile&name_file={{ general.logo }}">
+                        </a>
+                    </div>
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {# --- Navigation --- #}
+            <ul class="navbar-nav">
+                {# Dashboard #}
+                <li class="nav-item">
+                    {# Añadir clase 'active' si es la sección actual #}
+                    <a class="nav-link {% if general.current_class == 'dashboard' %} bg-primary text-white rounded{% endif %}" href="{{ general.full_web_url }}?class=dashboard">
+                        <i class="fas fa-tachometer-alt text-primary"></i> {# Ícono de Dashboard #}
+                        <span class="nav-link-text ms-1">Dashboard</span> {# Texto del menú #}
+                    </a>
+                </li>
+
+                {# Citas #}
+                <li class="nav-item">
+                    <a class="nav-link {% if general.current_class == 'citas' %} bg-primary text-white rounded{% endif %}" href="{{ general.full_web_url }}?class=citas">
+                        <i class="fas fa-calendar-alt text-info"></i> {# Ícono de Calendario/Citas #}
+                        <span class="nav-link-text ms-1">Agenda Citas</span>
+                    </a>
+                </li>
+
+                {# Cotizaciones #}
+                <li class="nav-item">
+                    <a class="nav-link {% if general.current_class == 'cotizaciones' %} bg-primary text-white rounded{% endif %}" href="{{ general.full_web_url }}?class=cotizaciones">
+                        <i class="fas fa-file-invoice-dollar text-success"></i> {# Ícono de Cotización #}
+                        <span class="nav-link-text ms-1">Cotizaciones</span>
+                    </a>
+                </li>
+
+                {# Exámenes (Catálogo) #}
+                <li class="nav-item">
+                    <a class="nav-link {% if general.current_class == 'examenes' %} bg-primary text-white rounded{% endif %}" href="{{ general.full_web_url }}?class=examenes">
+                        <i class="fas fa-vial text-warning"></i> {# Ícono de Examen/Laboratorio #}
+                        <span class="nav-link-text ms-1">Exámenes</span>
+                    </a>
+                </li>
+
+                {# Usuarios #}
+                <li class="nav-item">
+                    <a class="nav-link {% if general.current_class == 'usuarios' %} bg-primary text-white rounded{% endif %}" href="{{ general.full_web_url }}?class=usuarios">
+                        <i class="fas fa-users text-default"></i> {# Ícono de Usuarios #}
+                        <span class="nav-link-text ms-1">Usuarios</span>
+                    </a>
+                </li>
+
+                {# Puedes añadir un separador si quieres agrupar #}
+                <hr class="my-3">
+
+                {# Configuración (Ejemplo si la añades) #}
+                {#
+                <li class="nav-item">
+                   <a class="nav-link {% if general.current_class == 'configuracion' %} bg-primary text-white rounded{% endif %}" href="{{ general.full_web_url }}?class=configuracion">
+                       <i class="fas fa-cog text-dark"></i>
+                       <span class="nav-link-text ms-1">Configuración</span>
+                   </a>
+               </li>
+                #}
+
+                {# Cerrar Sesión #}
+                <li class="nav-item">
+                    {# Usar la clase 'salir' que manejaste en el controlador #}
+                    <a class="nav-link" href="{{ general.full_web_url }}?class=salir">
+                        <i class="fas fa-sign-out-alt text-danger"></i> {# Ícono de Salir #}
+                        <span class="nav-link-text ms-1">Cerrar Sesión</span>
+                    </a>
+                </li>
+            </ul>
+
+            {# Si quieres usar menús desplegables como en tu ejemplo, #}
+            {# necesitarías volver a añadir la estructura con li_padre/ul_hijo #}
+            {# y el JavaScript correspondiente para abrirlos/cerrarlos. #}
+            {# Para este conjunto de módulos, una lista simple puede ser suficiente. #}
+
+        </div> {# Fin Collapse #}
+    </div> {# Fin Container #}
+</nav>

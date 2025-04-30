@@ -1,0 +1,122 @@
+{% block head %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    {# Title #}
+    <title>{{ general.list_company.0.nombre }}</title>
+
+    {# Metadata #}
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Don Joaco">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    {# Icono #}
+
+    {# Bootstrap V-4.1.2 (CSS) #}
+    <link rel="stylesheet" type="text/css"
+          href="{{ general.full_assets_url }}template/argon-dashboard-master/js/plugins/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="{{ general.full_assets_url }}template/argon-dashboard-master/js/plugins/bootstrap/dist/css/bootstrap-grid.min.css">
+
+    {# Fuentes e íconos
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"> #}
+    <link href="{{ general.full_assets_url }}template/argon-dashboard-master/js/plugins/nucleo/css/nucleo.css"
+          rel="stylesheet">
+    <link href="{{ general.full_assets_url }}template/argon-dashboard-master/js/plugins/@fortawesome/fontawesome-free/css/all.min.css"
+          rel="stylesheet">
+
+    {# Emoji-picker #}
+    <link href="{{ general.full_assets_url }}js/plugins/emoji-picker/css/emoji.css" rel="stylesheet">
+
+    {# libreria de zebra #}
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/zebra_datepicker@latest/dist/css/default/zebra_datepicker.min.css">
+
+    {# Summernote #}
+    <link href="{{ general.full_assets_url }}js/plugins/summernote/summernote-lite.css" rel="stylesheet">
+    <link href="{{ general.full_assets_url }}\template\argon-dashboard-master\js\plugins\bootstrap-datepicker\dist\css\bootstrap-datepicker3.min.css"
+          rel="stylesheet">
+
+    {# Argon-dashboard-master (CSS) #}
+    <link rel="stylesheet" type="text/css"
+          href="{{ general.full_assets_url }}template/argon-dashboard-master/css/argon-dashboard.min.css">
+
+    {# Chart (CSS) #}
+    <link rel="stylesheet" type="text/css"
+          href="{{ general.full_assets_url }}template/argon-dashboard-master/js/plugins/chart.js/dist/Chart.min.css">
+
+    {# Main (CSS) #}
+    <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}css/admin/main.css">
+
+    {# Boostrap (CSS) #}
+    <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}css/admin/bootstrap-select.css">
+
+    {#  Karkit (Input File) #}
+    <link href="{{ general.full_assets_url }}js/plugins/kartik-v-bootstrap-fileinput/css/fileinput.css"
+          rel="stylesheet">
+
+    {# JQuery V-3.3.1 #}
+    {# <script src="<?php //echo constant('ASSETS_WEB_URL') ?>js/jquery-3.3.1.min.js"></script> #}
+</head>
+{% endblock %}
+<body>
+<!-- Button trigger modal -->
+<body class="">
+<div class="loader-page">
+        <img src="{{ general.full_web_url }}/scripts/obtener_archivo.php?directory=profile&name_file={{ general.logo }}"
+             alt="Logo" class="css-dashboard-logo " style="max-height: 10rem; max-width: 10rem; border-radius: 50px" >
+</div>
+<div class="wrapper contenedor_body ">
+
+    {{ include("sidebar.twig") }}
+
+
+    {# <div class="main-content main-container-messages">
+
+    {{ include('navbar.twig') }}
+
+    {% block content %}
+        Código HTML para cada vistas
+    {% endblock %}
+
+/div> #}
+
+    {# ---------------------------------- #}
+    <div class="main-content  custome-css-main-content">
+        <select name="" id="select_oculto" class="elementHide ">
+            <option class="nuevo" value=""></option>
+        </select>
+
+        {% block content %}
+
+        {% endblock %}
+
+        <!-- Page content -->
+        <div class="container-fluid mt-auto custome-css-container-general-messages">
+
+
+        </div>
+    </div>
+</div>
+</body>
+{{ include('footer-scripts.twig') }}
+{% block footer_scripts %}
+
+{% endblock %}
+</html>
+
+
+
+
+
+
+
+
+

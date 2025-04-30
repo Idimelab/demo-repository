@@ -1,0 +1,155 @@
+{% extends "baseDocument.twig" %}
+
+{# Añadir aquí CSS para Select2 o Datepicker si los usas #}
+{% block header_styles %}
+    {# <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> #}
+    {# <link rel="stylesheet" href="URL_A_TU_DATEPICKER.css"> #}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2"> {# Formulario más centrado #}
+                <div class="card shadow">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h2 class="mb-0">
+                                    {% if form_action == 'edit' %}
+                                        Editar Cita #{{ cita.id_cita }} <i class="fas fa-calendar-check ms-2"></i>
+                                    {% else %}
+                                        Agendar Nueva Cita <i class="fas fa-calendar-plus ms-2"></i>
+                                    {% endif %}
+                                </h2>
+                            </div>
+                            <div class="col-4 text-end">
+                                <a href="?class=citas" class="btn btn-sm btn-secondary"> {# Volver al calendario por defecto #}
+                                    <i class="fas fa-arrow-left me-1"></i> Volver a la Agenda
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {# --- Formulario --- #}
+                        <form id="citaForm" novalidate>
+                            {% if form_action == 'edit' %}
+                                <input type="hidden" class="js-cita-id" value="{{ cita.id_cita | default('') }}">
+                            {% endif %}
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="select-paciente" class="form-label">Paciente <span class="text-danger">*</span></label>
+                                    <select id="select-paciente" class="form-select js-paciente" required {% if form_action == 'edit' %} disabled {% endif %}> {# Deshabilitar en edición? O permitir cambiar? Asumamos NO #}
+                                        <option value="" {% if not cita %}selected{% endif %} disabled>Selecciona un paciente...</option>
+                                        {# Controlador pasa 'lista_pacientes' #}
+                                        {% for p in lista_pacientes %}
+                                            <option value="{{ p.id_usuario }}" {% if cita.id_paciente == p.id_usuario %}selected{% endif %}>
+                                                {{ p.apellido }}, {{ p.nombre }} ({{ p.documento }})
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                    {% if form_action == 'edit' %}<small class="text-muted">No se puede cambiar el paciente de una cita existente.</small>{% endif %}
+                                    <div class="invalid-feedback">Debes seleccionar un paciente.</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="select-examen" class="form-label">Examen <span class="text-danger">*</span></label>
+                                    <select id="select-examen" class="form-select js-examen" required {% if form_action == 'edit' %} disabled {% endif %}> {# Deshabilitar en edición? Asumamos NO #}
+                                        <option value="" {% if not cita %}selected{% endif %} disabled>Selecciona un examen...</option>
+                                        {# Controlador pasa 'lista_examenes_activos' #}
+                                        {% for e in lista_examenes_activos %}
+                                            <option value="{{ e.id_examen }}" {% if cita.id_examen == e.id_examen %}selected{% endif %}>
+                                                {{ e.nombre_examen }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                    {% if form_action == 'edit' %}<small class="text-muted">No se puede cambiar el examen de una cita existente.</small>{% endif %}
+                                    <div class="invalid-feedback">Debes seleccionar un examen.</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="input-fecha" class="form-label">Fecha <span class="text-danger">*</span></label>
+                                    <input type="date" id="input-fecha" class="form-control js-fecha" value="{{ cita.fecha_cita | default('') }}" required>
+                                    <div class="invalid-feedback">Selecciona una fecha válida.</div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="input-hora" class="form-label">Hora <span class="text-danger">*</span></label>
+                                    {# Usar step para intervalos, ej 900=15min, 1800=30min #}
+                                    <input type="time" id="input-hora" class="form-control js-hora" value="{{ cita.hora_cita | default('') }}" required step="900">
+                                    <div class="invalid-feedback">Selecciona una hora válida.</div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="input-estado" class="form-label">Estado <span class="text-danger">*</span></label>
+                                    <select id="input-estado" class="form-select js-estado" required>
+                                        {# En creación, usualmente solo 'Programada', en edición, todas #}
+                                        {% set estado_inicial = cita.estado | default('Programada') %}
+                                        {% for estado in estados_posibles %}
+                                            <option value="{{ estado }}" {% if estado_inicial == estado %}selected{% endif %}>{{ estado }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <div class="invalid-feedback">Selecciona un estado.</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-obs-paciente" class="form-label">Observaciones del Paciente</label>
+                                    <textarea id="input-obs-paciente" rows="3" class="form-control js-observaciones-paciente" placeholder="(Opcional)">{{ cita.observaciones_paciente | default('') }}</textarea>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-obs-internas" class="form-label">Observaciones Internas (Admin/Aux)</label>
+                                    <textarea id="input-obs-internas" rows="3" class="form-control js-observaciones-internas" placeholder="(Opcional)">{{ cita.observaciones_internas | default('') }}</textarea>
+                                </div>
+                            </div>
+
+                            {# Mensaje de error general #}
+                            <div id="form-error-message" class="alert alert-danger d-none mt-3" role="alert"></div>
+
+                            {# --- Botones --- #}
+                            <div class="text-end mt-4">
+                                <a href="?class=citas" class="btn btn-secondary me-2">
+                                    <i class="fas fa-times me-1"></i> Cancelar
+                                </a>
+                                {% if form_action == 'edit' %}
+                                    <button type="submit" class="btn btn-primary js-edit">
+                                        <i class="fas fa-save me-1"></i> Guardar Cambios
+                                    </button>
+                                {% else %}
+                                    <button type="submit" class="btn btn-success js-create">
+                                        <i class="fas fa-calendar-plus me-1"></i> Agendar Cita
+                                    </button>
+                                {% endif %}
+                            </div>
+
+                        </form>
+                        {# --- Fin Formulario --- #}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer_scripts %}
+    {# Select2 JS (Opcional) #}
+    {# <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> #}
+    {# Datepicker/Timepicker JS (Opcional) #}
+    {# <script src="URL_A_TU_DATEPICKER_TIMEPICKER.js"></script> #}
+
+    <script>
+        const tipo = "{{ form_action }}"; // 'create' o 'edit'
+        const cita_id = "{{ cita.id_cita | default(null) }}";
+        const currentUserId = {{ general.id_session }}; // ID del admin/aux logueado
+        const citaHandlerUrl = '{{ general.full_web_url }}ajax/admin/cita_handler.php';
+        const calendarUrl = '{{ general.full_web_url }}?class=citas'; // Volver al calendario
+        // Pasar estados posibles para validación si es necesario
+        const ESTADOS_CITA_JS = {{ estados_posibles | json_encode | raw }};
+        const formAction='{{ form_action }}';
+
+        // Inicializar Select2 aquí si se usa
+        // $(document).ready(function() { $('.js-paciente, .js-examen').select2(); });
+    </script>
+    <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/cita.js"></script>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "baseDocument.twig" %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h2 class="mb-0">Gestión de Exámenes <i class="fas fa-vial ms-2"></i></h2>
+                            </div>
+                            <div class="col-4 text-end">
+                                <a href="?class=examenes&action=create" class="btn btn-sm btn-success">
+                                    <i class="fas fa-plus me-1"></i> Crear Examen
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        {# --- Área del buscador --- #}
+{#                        <form method="get" action="" class="mb-3">#}
+{#                            <input type="hidden" name="class" value="examenes">#}
+{#                            <input type="hidden" name="action" value="list">#}
+{#                            <div class="row justify-content-center">#}
+{#                                <div class="col-md-4">#}
+{#                                    <div class="input-group">#}
+{#                                        <input type="text" name="search" value="{{ general.current_search | default('') }}" class="form-control form-control-sm JScriterio" placeholder="Buscar por nombre o código...">#}
+{#                                        <button class="btn btn-sm btn-primary JSbtnhSearh" type="submit">#}
+{#                                            <i class="fas fa-search"></i> Buscar#}
+{#                                        </button>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </form>#}
+                        {# --- Fin Buscador --- #}
+
+                        {# --- Tabla de Exámenes --- #}
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush table-hover">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Nombre Examen</th>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Preparación (Extracto)</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col" class="text-end">Acciones</th>
+                                </tr>
+                                </thead>
+                                <tbody class="list">
+                                {# El controlador debe pasar la variable 'examenes' #}
+                                {% for examen in examenes %}
+                                    <tr data-id="{{ examen.id_examen }}">
+                                        <td class="fw-bold">{{ examen.nombre_examen }}</td>
+                                        <td>{{ examen.codigo_examen | default('N/A') }}</td>
+                                        <td>${{ examen.precio | number_format(2, ',', '.') }}</td> {# Formato de moneda #}
+                                        <td>{{ examen.preparacion | slice(0, 50) | default('-') }}{% if examen.preparacion|length > 50 %}...{% endif %}</td> {# Mostrar solo inicio #}
+                                        <td>
+                                            {% if examen.activo %}
+                                                <span class="badge bg-success">Activo</span>
+                                            {% else %}
+                                                <span class="badge bg-secondary">Inactivo</span> {# Usar secondary para inactivo #}
+                                            {% endif %}
+                                        </td>
+                                        <td class="text-end">
+                                            <a href="?class=examenes&action=edit&id={{ examen.id_examen }}"
+                                               data-bs-toggle="tooltip" data-bs-placement="top"
+                                               title="Editar Examen"
+                                               class="btn btn-sm btn-info me-1">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            {# Botón Desactivar/Eliminar #}
+                                            <button type="button"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="{% if examen.activo %}Desactivar{% else %}Activar{% endif %} Examen" {# Título dinámico? o solo desactivar? Asumamos desactivar #}
+                                                    class="btn btn-sm {% if examen.activo %}btn-danger{% else %}btn-warning{% endif %} jsDelete" {# Botón cambia si está inactivo? O solo se desactiva? Asumamos desactivar #}
+                                                    data-id="{{ examen.id_examen }}"
+                                                    data-nombre="{{ examen.nombre_examen }}">
+                                                <i class="fas {% if examen.activo %}fa-trash-alt{% else %}fa-toggle-off{% endif %}"></i> {# Icono dinámico? o solo trash? Asumamos trash #}
+                                            </button>
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="6" class="text-center fst-italic py-3">No se encontraron exámenes.</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {# --- Fin Tabla --- #}
+
+                        {# --- Paginación --- #}
+                        {# {% include 'layout/pagination.twig' with {'pagination': paginacion} %} #}
+                    </div> {# Fin card-body #}
+                </div> {# Fin card #}
+            </div> {# Fin col-md-12 #}
+        </div> {# Fin row #}
+    </div> {# Fin container #}
+{% endblock %}
+
+{% block footer_scripts %}
+    <script>
+        const tipo = "list";
+    </script>
+    <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/examen.js"></script>
+{% endblock %}

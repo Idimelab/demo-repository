@@ -1,0 +1,131 @@
+{% extends "baseDocument.twig" %} {# Usa tu layout base de paciente #}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h2 class="mb-0">Mis Citas Agendadas <i class="fas fa-notes-medical ms-2"></i></h2>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="?class=citas&action=create" class="btn btn-sm btn-success">
+                                    <i class="fas fa-plus me-1"></i> Agendar Nueva Cita
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {# --- Filtro Opcional por Estado --- #}
+                        <form method="get" action="" class="mb-3">
+                            <input type="hidden" name="class" value="citas">
+                            <input type="hidden" name="action" value="list">
+                            <div class="row justify-content-end">
+                                <div class="col-md-3">
+                                    <label for="filtro-estado" class="form-label form-label-sm">Filtrar por Estado</label>
+                                    <select id="filtro-estado" name="estado" class="form-select form-select-sm" onchange="this.form.submit()">
+                                        <option value="">Todas</option>
+                                        {% for estado in estados_posibles %}
+                                            <option value="{{ estado }}" {% if estado_filtro == estado %}selected{% endif %}>{{ estado }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                        {# --- Fin Filtros --- #}
+
+                        {# --- Tabla de Citas --- #}
+                        <div class="table-responsive">
+                            <table class="table table-sm align-items-center table-hover">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Examen</th>
+                                    <th>Estado</th>
+                                    <th>Preparación</th>
+                                    <th class="text-end">Acciones</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for cita in citas %}
+                                    <tr data-id="{{ cita.id_cita }}">
+                                        <td>{{ cita.fecha_cita | date('Y-m-d') }}</td>
+                                        <td>{{ cita.hora_cita | date('H:i A') }}</td> {# Formato AM/PM #}
+                                        <td>{{ cita.nombre_examen | default('N/A') }}</td>
+                                        <td>
+                                            {# Badge Estado (igual que admin) #}
+                                            {% set badge_class = 'secondary' %}
+                                            {% set estado_lower = cita.estado | lower | replace({' ': '_'}) %}
+                                            {% if estado_lower == 'programada' %} {% set badge_class = 'info text-dark' %}
+                                            {% elseif estado_lower == 'confirmada' %} {% set badge_class = 'primary' %}
+                                            {% elseif estado_lower == 'realizada' %} {% set badge_class = 'success' %}
+                                            {% elseif estado_lower starts with 'cancelada' %} {% set badge_class = 'danger' %}
+                                            {% elseif estado_lower == 'no_asistio' %} {% set badge_class = 'secondary' %}
+                                            {% endif %}
+                                            <span class="badge bg-{{ badge_class }}">{{ cita.estado }}</span>
+                                        </td>
+                                        <td>
+                                            {% if cita.preparacion_examen %}
+                                                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="tooltip" title="{{ cita.preparacion_examen }}">
+                                                    <i class="fas fa-info-circle"></i> Ver
+                                                </button>
+                                            {% else %}
+                                                -
+                                            {% endif %}
+                                        </td>
+                                        <td class="text-end">
+                                            {# Acciones Condicionales basadas en 'puede_modificar' (calculado en controller) #}
+                                            {% if cita.puede_modificar %}
+                                                <a href="?class=citas&action=edit&id={{ cita.id_cita }}"
+                                                   class="btn btn-sm btn-info me-1"
+                                                   data-bs-toggle="tooltip" title="Reagendar Cita (>24h antelación)">
+                                                    <i class="fas fa-calendar-alt"></i> <span class="d-none d-md-inline">Reagendar</span>
+                                                </a>
+{#                                                <button type="button"#}
+{#                                                        class="btn btn-sm btn-warning jsCancel" #}{# Botón de cancelar #}
+{#                                                        data-id="{{ cita.id_cita }}"#}
+{#                                                        data-info="Cita #{{ cita.id_cita }} para {{ cita.nombre_examen }}"#}
+{#                                                        data-bs-toggle="tooltip" title="Cancelar Cita (>24h antelación)">#}
+{#                                                    <i class="fas fa-calendar-times"></i> <span class="d-none d-md-inline">Cancelar</span>#}
+{#                                                </button>#}
+                                            {% else %}
+                                                {# Mostrar un icono o texto indicando por qué no se puede modificar #}
+                                                {% if cita.estado in ['Programada', 'Confirmada'] %}
+                                                    <span class="text-muted small" data-bs-toggle="tooltip" title="Faltan menos de 24 horas para la cita.">
+                                                         <i class="fas fa-lock"></i> Bloqueada
+                                                     </span>
+                                                {% else %}
+                                                    <span class="text-muted small">-</span> {# Para estados finales #}
+                                                {% endif %}
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="6" class="text-center fst-italic py-3">No tienes citas agendadas que coincidan con el filtro.</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {# --- Fin Tabla --- #}
+                    </div> {# Fin Card Body #}
+                </div> {# Fin Card #}
+            </div> {# Fin Col #}
+        </div> {# Fin Row #}
+    </div> {# Fin Container #}
+{% endblock %}
+
+{% block footer_scripts %}
+    <script>
+        const tipo = "list"; // Indica a JS que es la vista de lista del paciente
+        const citaHandlerUrl = '{{ general.full_web_url }}ajax/paciente/cita_handler.php'; // Handler específico paciente
+        const currentPatientId = {{ general.id_session }}; // ID del paciente actual
+        // No necesitamos currentAdminUserId aquí, usamos currentPatientId
+    </script>
+    {# Incluir un JS específico o adaptar el de admin si la lógica es muy similar #}
+    <script type="text/javascript" src="{{ general.full_assets_url }}js/paciente/paciente_cita.js"></script>
+{% endblock %}

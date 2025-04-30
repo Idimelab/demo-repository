@@ -1,0 +1,112 @@
+{% extends "baseDocument.twig" %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h2 class="mb-0">
+                                    {% if form_action == 'edit' %}
+                                        Editar Examen <i class="fas fa-vial ms-2"></i>
+                                    {% else %}
+                                        Crear Nuevo Examen <i class="fas fa-vial ms-2"></i>
+                                    {% endif %}
+                                </h2>
+                            </div>
+                            <div class="col-4 text-end">
+                                <a href="?class=examenes&action=list" class="btn btn-sm btn-secondary">
+                                    <i class="fas fa-arrow-left me-1"></i> Volver a la Lista
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {# --- Formulario --- #}
+                        <form id="examenForm" novalidate>
+                            {# Campo oculto para el ID en modo edición #}
+                            {% if form_action == 'edit' %}
+                                <input type="hidden" class="js-examen-id" value="{{ examen.id_examen | default('') }}">
+                            {% endif %}
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-nombre" class="form-label">Nombre del Examen <span class="text-danger">*</span></label>
+                                    <input type="text" id="input-nombre" class="form-control js-nombre" placeholder="Ej: Hemograma Completo" value="{{ examen.nombre_examen | default('') }}" required>
+                                    <div class="invalid-feedback">El nombre es requerido.</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-codigo" class="form-label">Código Interno</label>
+                                    <input type="text" id="input-codigo" class="form-control js-codigo" placeholder="Ej: HEMO-01 (Opcional)" value="{{ examen.codigo_examen | default('') }}">
+                                    {# Podrías añadir validación de unicidad aquí o en backend #}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-precio" class="form-label">Precio <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="number" id="input-precio" class="form-control js-precio" placeholder="0.00" value="{{ examen.precio | default('') }}" required min="0" step="0.01">
+                                    </div>
+                                    <div class="invalid-feedback">Ingresa un precio válido (mayor o igual a 0).</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-activo" class="form-label">Estado <span class="text-danger">*</span></label>
+                                    <select id="input-activo" class="form-select js-activo" required>
+                                        <option value="1" {% if examen is null or examen.activo == 1 %}selected{% endif %}>Activo</option>
+                                        <option value="0" {% if examen and examen.activo == 0 %}selected{% endif %}>Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="input-descripcion" class="form-label">Descripción</label>
+                                    <textarea id="input-descripcion" rows="3" class="form-control js-descripcion" placeholder="Información adicional sobre el examen (Opcional)">{{ examen.descripcion | default('') }}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="input-preparacion" class="form-label">Instrucciones de Preparación</label>
+                                    <textarea id="input-preparacion" rows="5" class="form-control js-preparacion" placeholder="Pasos que debe seguir el paciente antes del examen (Opcional)">{{ examen.preparacion | default('') }}</textarea>
+                                </div>
+                            </div>
+
+                            {# Mensaje de error general del backend #}
+                            <div id="form-error-message" class="alert alert-danger d-none mt-3" role="alert"></div>
+
+                            {# --- Botones de Acción --- #}
+                            <div class="text-end mt-4">
+                                <a href="?class=examenes&action=list" class="btn btn-secondary me-2">
+                                    <i class="fas fa-times me-1"></i> Cancelar
+                                </a>
+                                {% if form_action == 'edit' %}
+                                    <button type="submit" class="btn btn-primary js-edit">
+                                        <i class="fas fa-save me-1"></i> Guardar Cambios
+                                    </button>
+                                {% else %}
+                                    <button type="submit" class="btn btn-success js-create">
+                                        <i class="fas fa-plus me-1"></i> Crear Examen
+                                    </button>
+                                {% endif %}
+                            </div>
+                        </form>
+                        {# --- Fin Formulario --- #}
+                    </div> {# Fin card-body #}
+                </div> {# Fin card #}
+            </div> {# Fin col #}
+        </div> {# Fin row #}
+    </div> {# Fin container #}
+{% endblock %}
+
+{% block footer_scripts %}
+    <script>
+        const tipo = "{{ form_action }}"; // 'create' o 'edit'
+        const examen_id = "{{ examen.id_examen | default(null) }}"; // ID si estamos editando
+    </script>
+    <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/examen.js"></script>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "baseDocument.twig" %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-sm-8">
+                                <h2 class="mb-0">Gestión de Cotizaciones <i class="fas fa-file-invoice-dollar ms-2"></i></h2>
+                            </div>
+                            <div class="col-sm-4 text-end">
+                                <a href="?class=cotizaciones&action=create" class="btn btn-sm btn-success">
+                                    <i class="fas fa-plus me-1"></i> Crear Cotización
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+
+                        {# --- Tabla de Cotizaciones --- #}
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush table-hover">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Vigencia</th>
+                                    <th scope="col" class="text-end">Acciones</th>
+                                </tr>
+                                </thead>
+                                <tbody class="list">
+                                {# El controlador debe pasar la variable 'cotizaciones' #}
+                                {% for cot in cotizaciones %}
+                                    <tr data-id="{{ cot.id_cotizacion }}">
+                                        <td>#{{ cot.id_cotizacion }}</td>
+                                        <td>{{ cot.fecha_cotizacion | date('Y-m-d H:i') }}</td> {# Formato fecha y hora #}
+                                        <td>
+                                            {{ cot.nombre_usuario }} {{ cot.apellido_usuario }}
+                                            <br><small class="text-muted">{{ cot.email_usuario }}</small>
+                                        </td>
+                                        <td class="text-end fw-bold">${{ cot.precio_total_calculado | default(0) | number_format(2, ',', '.') }}</td>
+                                        <td>
+                                            {% set badge_class = 'secondary' %}
+                                            {% if cot.estado == 'Pendiente' %} {% set badge_class = 'warning' %}
+                                            {% elseif cot.estado == 'Completada' %} {% set badge_class = 'success' %}
+                                            {% elseif cot.estado == 'Expirada' %} {% set badge_class = 'danger' %}
+                                            {% endif %}
+                                            <span class="badge bg-{{ badge_class }}">{{ cot.estado }}</span>
+                                        </td>
+                                        <td>{{ cot.vigencia_hasta ? cot.vigencia_hasta | date('Y-m-d') : '-' }}</td>
+                                        <td class="text-end">
+                                            {# Ver Detalles #}
+                                            <a href="?class=cotizaciones&action=view&id={{ cot.id_cotizacion }}"
+                                               data-bs-toggle="tooltip" data-bs-placement="top"
+                                               title="Ver Detalles"
+                                               class="btn btn-sm btn-light me-1"> {# Usar btn-light o similar #}
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            {# Editar (limitado) #}
+                                            <a href="?class=cotizaciones&action=edit&id={{ cot.id_cotizacion }}"
+                                               data-bs-toggle="tooltip" data-bs-placement="top"
+                                               title="Editar Estado/Vigencia/Notas"
+                                               class="btn btn-sm btn-info me-1">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            {# Botón Eliminar #}
+                                            <button type="button"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Eliminar Cotización"
+                                                    class="btn btn-sm btn-danger jsDelete"
+                                                    data-id="{{ cot.id_cotizacion }}"
+                                                    data-info="Cotización #{{ cot.id_cotizacion }}"> {# Info para confirmación #}
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="7" class="text-center fst-italic py-3">No se encontraron cotizaciones con los filtros aplicados.</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {# --- Fin Tabla --- #}
+
+                        {# --- Paginación --- #}
+                        {# {% include 'layout/pagination.twig' with {'pagination': paginacion} %} #}
+                    </div> {# Fin card-body #}
+                </div> {# Fin card #}
+            </div> {# Fin col-md-12 #}
+        </div> {# Fin row #}
+    </div> {# Fin container #}
+{% endblock %}
+
+{% block footer_scripts %}
+    <script>
+        const tipo = "list";
+    </script>
+    {# Incluir el JS específico para cotizaciones #}
+    <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/cotizacion.js"></script>
+{% endblock %}

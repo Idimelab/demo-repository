@@ -1,0 +1,123 @@
+{% extends "baseDocument.twig" %} {# Ajusta el nombre de tu plantilla base #}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1"> {# Centrar un poco el contenido #}
+                <div class="card shadow">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-sm-7 col-md-8">
+                                {# Título de la página #}
+                                <h2 class="mb-0">Detalle de Cita #{{ cita.id_cita }} <i class="fas fa-file-medical-alt ms-2"></i></h2>
+                            </div>
+                            <div class="col-sm-5 col-md-4 text-end">
+                                {# Botones de Acción #}
+                                <a href="?class=citas&action=edit&id={{ cita.id_cita }}" class="btn btn-sm btn-info me-1" title="Editar/Reprogramar">
+                                    <i class="fas fa-edit"></i> <span class="d-none d-md-inline">Editar</span>
+                                </a>
+                                <a href="?class=citas" class="btn btn-sm btn-secondary" title="Volver a la Agenda"> {# Volver al calendario/lista #}
+                                    <i class="fas fa-arrow-left"></i> <span class="d-none d-md-inline">Volver</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {# --- Información Detallada de la Cita --- #}
+                        {# Usamos un formato similar al modal para consistencia #}
+
+                        <h6 class="heading-small text-muted mb-3">Información del Paciente</h6>
+                        <dl class="row mb-4">
+                            <dt class="col-sm-3">Paciente:</dt>
+                            <dd class="col-sm-9">{{ cita.nombre | default('N/A') }} {{ cita.apellido | default('N/A') }}</dd>
+
+                            <dt class="col-sm-3">Documento:</dt>
+                            <dd class="col-sm-9">{{ cita.documento | default('N/A') }}</dd>
+
+                            <dt class="col-sm-3">Email:</dt>
+                            <dd class="col-sm-9">{{ cita.email | default('-') }}</dd>
+
+                            <dt class="col-sm-3">Teléfono:</dt>
+                            <dd class="col-sm-9">{{ cita.telefono | default('-') }}</dd>
+                        </dl>
+
+                        <h6 class="heading-small text-muted mb-3">Detalles del Examen y Cita</h6>
+                        <dl class="row mb-4">
+                            <dt class="col-sm-3">Examen:</dt>
+                            <dd class="col-sm-9">{{ cita.nombre_examen | default('N/A') }}</dd>
+
+                            <dt class="col-sm-3">Código Examen:</dt>
+                            <dd class="col-sm-9">{{ cita.codigo_examen | default('N/A') }}</dd>
+
+                            <dt class="col-sm-3">Fecha y Hora:</dt>
+                            <dd class="col-sm-9 fw-bold">{{ cita.fecha_cita | date('Y-m-d') }} {{ cita.hora_cita | date('H:i') }}</dd> {# Formato HH:MM #}
+
+                            <dt class="col-sm-3">Estado Actual:</dt>
+                            <dd class="col-sm-9">
+                                {# Badge de Estado (igual que en la lista) #}
+                                {% set badge_class = 'secondary' %} {# Default #}
+                                {% set estado_lower = cita.estado | lower | replace({' ': '_'}) %}
+                                {% if estado_lower == 'programada' %} {% set badge_class = 'info text-dark' %}
+                                {% elseif estado_lower == 'confirmada' %} {% set badge_class = 'primary' %}
+                                {% elseif estado_lower == 'realizada' %} {% set badge_class = 'success' %}
+                                {% elseif estado_lower starts with 'cancelada' %} {% set badge_class = 'danger' %}
+                                {% elseif estado_lower == 'no_asistio' %} {% set badge_class = 'secondary' %}
+                                {% endif %}
+                                <span class="badge bg-{{ badge_class }}">{{ cita.estado }}</span>
+                            </dd>
+                        </dl>
+
+                        <h6 class="heading-small text-muted mb-3">Observaciones</h6>
+                        <dl class="row mb-4">
+                            <dt class="col-sm-3">Del Paciente:</dt>
+                            <dd class="col-sm-9">
+                                <p class="border p-2 rounded bg-light mb-0">{{ cita.observaciones_paciente | default('Ninguna.') | nl2br }}</p>
+                            </dd>
+
+                            <dt class="col-sm-3 mt-2">Internas (Admin/Aux):</dt>
+                            <dd class="col-sm-9 mt-2">
+                                <p class="border p-2 rounded bg-light mb-0">{{ cita.observaciones_internas | default('Ninguna.') | nl2br }}</p>
+                            </dd>
+                        </dl>
+
+                        <hr>
+                        {# --- Acciones Adicionales (Opcional) --- #}
+                        <div class="text-end">
+                            <h6 class="heading-small text-muted mb-2 d-inline-block me-2">Cambiar Estado:</h6>
+                            <select class="form-select form-select-sm d-inline-block w-auto js-change-status-list me-2" data-id="{{ cita.id_cita }}">
+                                <option value="">Seleccionar...</option>
+                                {% for estado in estados_posibles %}
+                                    {% if estado != cita.estado %} {# No mostrar el estado actual como opción #}
+                                        <option value="{{ estado }}">{{ estado }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+
+{#                            <button type="button" class="btn btn-sm btn-danger jsCancel"#}
+{#                                    data-id="{{ cita.id_cita }}"#}
+{#                                    data-info="#{{ cita.id_cita }} - {{ cita.apellido_paciente }}">#}
+{#                                <i class="fas fa-calendar-times me-1"></i> Cancelar Cita#}
+{#                            </button>#}
+                        </div>
+                        {# --- Fin Acciones --- #}
+
+                    </div> {# Fin card-body #}
+                </div> {# Fin card #}
+            </div> {# Fin col #}
+        </div> {# Fin row #}
+    </div> {# Fin container #}
+{% endblock %}
+
+{% block footer_scripts %}
+    {# Incluir JS de Citas para manejar los botones de acción #}
+    <script>
+        const tipo = "view"; // Indica que estamos en la vista de detalle
+        const cita_id = "{{ cita.id_cita }}";
+        // Pasar variables necesarias para las acciones JS
+        const citaHandlerUrl = '{{ general.full_web_url }}ajax/admin/cita_handler.php';
+        const currentAdminUserId = {{ general.id_session }};
+        const ESTADOS_CITA_JS = {{ estados_posibles | json_encode | raw }};
+        const listUrl = '{{ general.full_web_url }}?class=citas'; // O calendarUrl si prefieres volver ahí
+    </script>
+    <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/cita.js"></script>
+{% endblock %}

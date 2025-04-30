@@ -1,0 +1,267 @@
+{# views/public/catalog.html.twig #}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Idem - Catálogo de Exámenes</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Consulta nuestro catálogo de exámenes y precios disponibles en Idem Laboratorio.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    {# Reutiliza el mismo CSS del login/registro #}
+    <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}css/login.css">
+
+    <style>
+        /* Estilos básicos para layout de Login y Registro */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: sans-serif; /* Considera una fuente más específica si lo deseas */
+            overflow-x: hidden; /* Evitar scroll horizontal si algo se desborda */
+        }
+
+        .login-container { /* Contenedor principal que ocupa toda la pantalla */
+            padding: 0;
+            overflow-y: auto; /* Permitir scroll vertical si el contenido es muy alto en pantallas pequeñas */
+            min-height: 100vh; /* Asegurar altura mínima */
+        }
+
+        .login-left-column {
+            /* --- IMAGEN DE FONDO --- */
+            /* Reemplaza la URL con la ruta a tu imagen real */
+            background: url('https://www.medvidasalud.com/wp-content/uploads/que-es-un-laboratorio-clinico-medvida-salud.webp') no-repeat center center;
+            /* background: url('../img/tu_imagen_de_fondo.jpg') no-repeat center center; */
+            background-size: cover;
+            position: relative; /* Necesario para el overlay y el posicionamiento absoluto del footer */
+            color: #fff; /* Color de texto por defecto para esta columna */
+            display: flex; /* Usar flexbox para controlar contenido */
+            flex-direction: column; /* Apilar elementos verticalmente */
+            justify-content: space-between; /* Empujar header y footer a los extremos */
+            min-height: 100vh; /* Asegurar que ocupe toda la altura en pantallas grandes */
+        }
+
+        /* Overlay oscuro sobre la imagen de fondo para mejorar legibilidad */
+        .login-left-column::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.35); /* Ajusta opacidad (0.35 = 35%) */
+            z-index: 1; /* Detrás del contenido, sobre la imagen */
+        }
+
+        /* Contenido directo de la columna izquierda debe estar sobre el overlay */
+        .login-left-column > div { /* Afecta a los divs directos (header y footer de contacto) */
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Estilos para el header (logo, nav) en columna izquierda */
+        .login-left-column .navbar-nav .nav-link { /* Estilo específico si quieres para la nav */
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300; /* Más ligero */
+            padding: 0.5rem 0; /* Ajustar padding */
+        }
+        .login-left-column .navbar-nav .nav-link:hover {
+            color: #fff;
+        }
+
+
+        /* Estilos para detalles de contacto en columna izquierda */
+        .contact-details {
+            background-color: rgba(0, 80, 70, 0.65); /* Fondo semi-transparente (ejemplo verde oscuro) */
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            backdrop-filter: blur(4px); /* Efecto blur leve si el navegador soporta */
+            margin-top: auto; /* Empujar al fondo si el contenido no llena el alto */
+        }
+
+        .contact-details small {
+            opacity: 0.8; /* Hacer el label "Telefono", "E-Mail" un poco más tenue */
+            font-size: 0.8rem; /* Tamaño más pequeño */
+            text-transform: uppercase; /* Opcional: mayúsculas */
+        }
+        .contact-details span.fw-light { /* Texto de la información de contacto */
+            font-size: 0.9rem;
+        }
+        .contact-details i.fa-fw { /* Iconos */
+            opacity: 0.7;
+        }
+
+        /* Columna Derecha (Formulario) */
+        .login-right-column {
+            background-color: #f4f7fa; /* Un gris muy claro o blanco */
+            display: flex;
+            align-items: center; /* Centrar verticalmente */
+            justify-content: center; /* Centrar horizontalmente */
+            padding: 2rem 1rem; /* Padding para pantallas pequeñas */
+            min-height: 100vh; /* Asegurar altura mínima también */
+        }
+
+        /* Contenedor del formulario */
+        .login-form-container {
+            width: 100%;
+            max-width: 500px; /* Ancho máximo para el formulario, ajusta si es necesario */
+            background-color: #fff;
+            padding: 2.5rem; /* Padding interno */
+            border-radius: 0.5rem;
+            box-shadow: 0 0.75rem 1.5rem rgba(18,38,63,.03); /* Sombra sutil tipo Argon */
+            border: 1px solid #e9ecef; /* Borde ligero */
+        }
+
+        /* Ajustes específicos para el formulario de registro si es necesario */
+        #registerForm .form-label {
+            font-size: 0.875rem; /* Tamaño etiquetas */
+            font-weight: 600;
+        }
+
+        /* Estilo general de inputs y selects */
+        .form-control, .form-select {
+            border: 1px solid #cad1d7;
+            transition: all .15s ease-in-out;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #5e72e4; /* Color de borde al enfocar (ejemplo Argon) */
+            box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.25);
+        }
+
+        /* Estilo para inputs inválidos */
+        .form-control.is-invalid, .form-select.is-invalid {
+            border-color: #f5365c; /* Rojo Argon para errores */
+        }
+        .form-control.is-invalid:focus, .form-select.is-invalid:focus {
+            border-color: #f5365c;
+            box-shadow: 0 0 0 0.2rem rgba(245, 54, 92, 0.25);
+        }
+        .invalid-feedback {
+            font-size: 0.8em; /* Feedback de error más pequeño */
+        }
+
+
+        /* Estilo Botones (Reutilizable Login/Registro) */
+        .login-form-container .btn-lg { /* Botones principales */
+            padding: 0.875rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+        }
+
+        /* Color específico botón registro (si usas .btn-success) */
+        .btn-success {
+            background-color: #2dce89; /* Verde Argon */
+            border-color: #2dce89;
+        }
+        .btn-success:hover {
+            background-color: #26ab74;
+            border-color: #24a06c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid vh-100 login-container">
+    <div class="row h-100">
+        {# Puedes copiar exactamente la misma columna izquierda de register.html.twig aquí #}
+        <div class="col-lg-7 d-none d-lg-flex flex-column justify-content-between login-left-column">
+            {# Área Superior Izquierda (Logo y Navegación mínima) #}
+            <div class="p-4">
+                <img src="{{ general.full_web_url }}/scripts/obtener_archivo.php?directory=profile&name_file={{ general.logo | default('logo_predeterminado.png') }}" alt="Logo Idem" style="max-height: 50px;">
+                <nav class="mt-3">
+                    {# Podrías poner links a Login/Registro si quieres #}
+                    <a href="{{ general.full_web_url }}" class="text-white text-decoration-none me-3 fw-light">Iniciar Sesión</a>
+                    <a href="{{ general.full_web_url }}?page=register" class="text-white text-decoration-none me-3 fw-light">Registrarse</a> {# Asumiendo ?page=register #}
+                </nav>
+            </div>
+            {# Fondo (vía CSS) #}
+            {# Área Inferior Izquierda (Contacto - Igual que Login/Registro) #}
+            <div class="p-4 text-white contact-details">
+                <div class="row">
+                    <div class="col-md-6 mb-3"><small><i class="fas fa-phone fa-fw me-2"></i><strong>Telefono</strong></small><br><span class="fw-light">+57 324 5344689</span></div>
+                    <div class="col-md-6 mb-3"><small><i class="fas fa-envelope fa-fw me-2"></i><strong>E-Mail</strong></small><br><span class="fw-light">contacto@idem.com.co</span></div>
+                    <div class="col-md-6 mb-3"><small><i class="fas fa-globe fa-fw me-2"></i><strong>Sitio web</strong></small><br><span class="fw-light">www.idem.com.co</span></div>
+                    <div class="col-md-6 mb-3"><small><i class="fas fa-map-marker-alt fa-fw me-2"></i><strong>Direccion</strong></small><br><span class="fw-light">Carrera X # Y-Z</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5 col-md-12 d-flex align-items-center justify-content-center login-right-column">
+            {# Usamos un contenedor diferente al del form para darle estilo propio si es necesario #}
+            <div class="catalog-container p-4">
+                <h2 class="fw-bold mb-2 text-center">Catálogo de Exámenes</h2>
+                <p class="text-muted mb-4 text-center">Consulta nuestros exámenes disponibles y sus precios.</p>
+
+                {# --- Lista de Exámenes --- #}
+                <div class="exam-list">
+                    {# El controlador pasa 'lista_examenes' con los datos de Examenes::getAllActive() #}
+                    {% if lista_examenes is not empty %}
+                        {% for examen in lista_examenes %}
+                            <div class="card shadow-sm mb-4 card-examen"> {# Sombra más suave para cards #}
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <h5 class="card-title mb-1">{{ examen.nombre_examen }}</h5>
+                                            {% if examen.codigo_examen %}
+                                                <small class="text-muted d-block mb-2">Código: {{ examen.codigo_examen }}</small>
+                                            {% endif %}
+                                            {% if examen.descripcion %}
+                                                <p class="card-text text-muted small mb-2">
+                                                    {{ examen.descripcion | slice(0, 120) }}{% if examen.descripcion|length > 120 %}...{% endif %}
+                                                </p>
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-md-4 text-md-end">
+                                            <p class="card-price mb-1">${{ examen.precio | number_format(2, ',', '.') }}</p>
+                                            {# Botones opcionales #}
+                                            {# <a href="?page=register" class="btn btn-sm btn-outline-primary mt-2">Agendar</a> #}
+                                        </div>
+                                    </div>
+                                    {% if examen.preparacion %}
+                                        <hr class="my-2">
+                                        <p class="card-text text-muted small mb-0">
+                                            <strong>Preparación:</strong> {{ examen.preparacion | slice(0, 150) | default('Ninguna específica.') }}{% if examen.preparacion|length > 150 %}...{% endif %}
+                                            {# Podrías añadir un botón/modal para ver preparación completa #}
+                                        </p>
+                                    {% endif %}
+                                </div>
+                                {# Podrías añadir un card-footer con botones si quisieras #}
+                                {# <div class="card-footer text-end"> <a href="..." class="btn btn-sm btn-primary">Cotizar</a> </div> #}
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="alert alert-light text-center" role="alert">
+                            No hay exámenes disponibles en el catálogo en este momento.
+                        </div>
+                    {% endif %}
+                </div>
+                {# --- Fin Lista de Exámenes --- #}
+
+                {# Enlace a Login/Registro Opcional #}
+                <div class="text-center mt-4">
+                    <p class="small text-muted">Para agendar o cotizar, por favor</p>
+                    <a href="{{ general.full_web_url }}" class="btn btn-sm btn-outline-primary me-2">Inicia Sesión</a>
+                    <a href="{{ general.full_web_url }}?page=register" class="btn btn-sm btn-outline-success">Regístrate</a> {# Asumiendo ?page=register #}
+                </div>
+
+            </div> {# Fin catalog-container #}
+        </div> {# Fin columna derecha #}
+    </div> {# Fin row #}
+</div> {# Fin container-fluid #}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+{# Incluir jQuery solo si realmente lo necesitas para esta página #}
+{# <script src="{{ general.full_assets_url }}template/argon-dashboard-master/js/plugins/jquery/dist/jquery.min.js"></script> #}
+<script>
+    const FULL_WEB_URL = '{{ general.full_web_url | default('/') }}';
+    // Activar Tooltips de Bootstrap si los usas
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) { return new bootstrap.Tooltip(tooltipTriggerEl); });
+</script>
+{# No necesitas un JS específico como register.js o login.js para mostrar solo el catálogo #}
+
+</body>
+</html>

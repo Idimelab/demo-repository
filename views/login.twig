@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Idem - Acceso</title> {# Cambia el título si lo deseas #}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Acceso al sistema Idem Laboratorio"> {# Ajusta la descripción #}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}css/login.css"> {# Necesitarás crear este archivo CSS #}
+
+    <script src="{{ general.full_assets_url }}template/argon-dashboard-master/js/plugins/jquery/dist/jquery.min.js"></script>
+
+</head>
+<style>
+    /* Estilos básicos para replicar el layout */
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: sans-serif; /* Elige una fuente más adecuada si quieres */
+    }
+
+    .login-container {
+        padding: 0;
+        overflow: hidden; /* Evitar barras de scroll si la imagen es muy grande */
+    }
+
+    .login-left-column {
+        /* --- ESPACIO PARA TU IMAGEN DE FONDO --- */
+        /* Ejemplo: background: url('../img/imagen_fondo_login.jpg') no-repeat center center; */
+        background: url('https://www.medvidasalud.com/wp-content/uploads/que-es-un-laboratorio-clinico-medvida-salud.webp') no-repeat center center;
+        background-size: cover;
+        position: relative; /* Para posicionar los detalles de contacto */
+        color: #fff;
+    }
+
+    /* Efecto de superposición oscura para mejorar legibilidad del texto */
+    .login-left-column::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3); /* Ajusta la opacidad */
+        z-index: 1;
+    }
+
+    /* Asegurar que el contenido esté sobre la superposición */
+    .login-left-column > div {
+        position: relative;
+        z-index: 2;
+    }
+
+    .contact-details {
+        background-color: rgba(0, 80, 70, 0.6); /* Fondo semi-transparente verde oscuro para el area de contacto */
+        border-top-left-radius: 10px; /* Opcional: Bordes redondeados */
+        border-top-right-radius: 10px;
+        backdrop-filter: blur(3px); /* Efecto blur si el navegador lo soporta */
+    }
+
+    .contact-details small {
+        opacity: 0.8;
+    }
+
+
+    .login-right-column {
+        background-color: #f8f9fa; /* Un gris muy claro */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-form-container {
+        width: 100%;
+        max-width: 400px; /* Ancho máximo del formulario */
+        background-color: #fff; /* Fondo blanco para el formulario */
+        padding: 3rem !important; /* Más padding */
+        border-radius: 0.5rem;
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0,.1); /* Sombra suave */
+    }
+
+    /* Ajustar tamaño de inputs */
+    .form-control-lg {
+        min-height: calc(1.5em + 1rem + 2px);
+        padding: 0.5rem 1rem;
+        font-size: 1rem; /* Ajusta si prefieres un tamaño diferente */
+        border-radius: 0.3rem;
+    }
+
+    /* Estilo del botón principal */
+    .btn-primary {
+        /* Usa el verde de tu imagen si lo tienes, o un verde estándar */
+        background-color: #1a7e75; /* Ejemplo de verde similar al de la imagen */
+        border-color: #1a7e75;
+        padding: 0.75rem 1.25rem; /* Botón más grande */
+        font-weight: 600;
+    }
+
+    .btn-primary:hover {
+        background-color: #14655e;
+        border-color: #125b55;
+    }
+
+    /* Estilo para inputs inválidos (Bootstrap 5) */
+    .form-control.is-invalid {
+        border-color: #dc3545; /* Rojo de Bootstrap */
+    }
+    .invalid-feedback {
+        display: none; /* Ocultar por defecto */
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: .875em;
+        color: #dc3545;
+    }
+    .was-validated .form-control:invalid, .form-control.is-invalid {
+        border-color: #dc3545;
+    }
+    .was-validated .form-control:invalid ~ .invalid-feedback,
+    .form-control.is-invalid ~ .invalid-feedback {
+        display: block; /* Mostrar feedback si es inválido */
+    }
+</style>
+<body>
+
+<div class="container-fluid vh-100 login-container">
+    <div class="row h-100">
+        <div class="col-lg-7 d-none d-lg-flex flex-column justify-content-between login-left-column">
+            {# Área Superior Izquierda (Logo y Navegación) #}
+            <div class="p-4">
+                {# --- ESPACIO PARA TU LOGO --- #}
+                {# Ejemplo: <img src="{{ general.full_assets_url }}img/logo_idem.png" alt="Logo Idem" style="max-height: 50px;"> #}
+                <img src="https://via.placeholder.com/150x50?text=Idem+Logo" alt="Logo Idem" style="max-height: 50px;">
+
+            </div>
+
+            {# --- ESPACIO PARA LA IMAGEN DE FONDO --- #}
+            {# La imagen de fondo se aplicará vía CSS a 'login-left-column' #}
+
+            {# Área Inferior Izquierda (Contacto) #}
+            <div class="p-4 text-white contact-details">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <small><i class="fas fa-phone fa-fw me-2"></i><strong>Telefono</strong></small><br>
+                        <span class="fw-light">+57 324 5344689</span> {# Ejemplo #}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <small><i class="fas fa-envelope fa-fw me-2"></i><strong>E-Mail</strong></small><br>
+                        <span class="fw-light">contacto@idem.com.co</span> {# Ejemplo #}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <small><i class="fas fa-globe fa-fw me-2"></i><strong>Sitio web</strong></small><br>
+                        <span class="fw-light">www.idem.com.co</span> {# Ejemplo #}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <small><i class="fas fa-map-marker-alt fa-fw me-2"></i><strong>Direccion</strong></small><br>
+                        <span class="fw-light">Carrera X # Y-Z</span> {# Ejemplo #}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5 col-md-12 d-flex align-items-center justify-content-center login-right-column">
+            <div class="login-form-container p-4 p-md-5">
+                <h2 class="fw-bold mb-2">Accedé</h2>
+                <p class="text-muted mb-4">Iniciá sesión para continuar</p>
+
+                {# --- FORMULARIO DE LOGIN --- #}
+                <form id="loginForm" class="js-login-form" novalidate>
+                    {# Campo Email #}
+                    <div class="mb-3 form-group">
+                        <label for="input-email" class="form-label text-muted small text-uppercase">Email</label>
+                        <input type="email" id="input-email" class="form-control form-control-lg js-email" placeholder="usuario@idem.com.co" required>
+                        <div class="invalid-feedback">
+                            Por favor, ingresa un email válido.
+                        </div>
+                    </div>
+
+                    {# Campo Contraseña #}
+                    <div class="mb-3 form-group">
+                        <label for="input-password" class="form-label text-muted small text-uppercase">Contraseña</label>
+                        <input type="password" id="input-password" class="form-control form-control-lg js-password" placeholder="********" required>
+                        <div class="invalid-feedback">
+                            Por favor, ingresa tu contraseña.
+                        </div>
+                    </div>
+
+                    {# Mensaje de Error de Login #}
+                    <div class="mb-3">
+                        <p class="js-login-message text-danger small"></p> {# Espacio para mensajes de error de AJAX #}
+                    </div>
+
+                    {# Botón Ingresar #}
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg js-login-button">
+                            Ingresar
+                        </button>
+                    </div>
+
+                </form>
+                {# --- FIN FORMULARIO --- #}
+
+                {# Enlaces adicionales (opcional) #}
+                <div class="text-center mt-4">
+                    <a href="#" class="text-muted text-decoration-none small">¿Olvidaste tu contraseña?</a>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="{{ general.full_web_url }}registro" class="text-muted text-decoration-none small">¿Eres nuevo? Resgitrate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script>
+    // Asegúrate que 'general.full_web_url' esté definido en tu contexto Twig
+    // y apunte a la raíz de tu aplicación web (ej: 'http://localhost/mi_proyecto/')
+    const FULL_WEB_URL = '{{ general.full_web_url | default('/') }}';
+</script>
+
+<script type="text/javascript" src="{{ general.full_assets_url }}js/login.js"></script>
+
+</body>
+</html>

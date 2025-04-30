@@ -1,0 +1,171 @@
+{% extends "baseDocument.twig" %}
+{% block header_styles %}
+
+    {# --- FullCalendar CSS (CDN) --- #}
+    {# Visita https://fullcalendar.io/docs/initialize-globals para las últimas versiones/CDN #}
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.css' rel='stylesheet' />
+    {# CSS para Select2 (opcional, si lo usas para filtros) #}
+    {# <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> #}
+    <style>
+        /* Ajustes opcionales para FullCalendar */
+        #calendar {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        /* Estilo para eventos en el calendario (ejemplo) */
+        .fc-event { cursor: pointer; }
+        .fc-event-main { padding: 4px 6px; }
+        /* Colores por estado (ejemplos, ajustar clases CSS en JS) */
+        .fc-event-programada { background-color: #0dcaf0; border-color: #0dcaf0; } /* Info */
+        .fc-event-confirmada { background-color: #0d6efd; border-color: #0d6efd; } /* Primary */
+        .fc-event-realizada { background-color: #198754; border-color: #198754; } /* Success */
+        .fc-event-cancelada_auxiliar, .fc-event-cancelada_paciente { background-color: #dc3545; border-color: #dc3545; } /* Danger */
+        .fc-event-no_asistio { background-color: #6c757d; border-color: #6c757d; } /* Secondary */
+    </style>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid mt-4"> {# Usar container-fluid para más ancho #}
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow mb-4">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h2 class="mb-0">Agenda de Citas <i class="fas fa-calendar-alt ms-2"></i></h2>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="?class=citas&action=list_view" class="btn btn-sm btn-outline-secondary me-2" title="Ver como Lista">
+                                    <i class="fas fa-list"></i>
+                                </a>
+                                <a href="?class=citas&action=create" class="btn btn-sm btn-success">
+                                    <i class="fas fa-plus me-1"></i> Agendar Nueva Cita
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {# --- Filtros del Calendario --- #}
+{#                        <div class="row g-2 mb-3 align-items-end border p-3 rounded bg-light">#}
+{#                            <div class="col-md-3">#}
+{#                                <label for="filtro-paciente" class="form-label form-label-sm">Paciente</label>#}
+{#                                #}{# Usar un input simple o un select con Select2 si hay muchos pacientes #}
+{#                                <input type="text" id="filtro-paciente-nombre" class="form-control form-control-sm" placeholder="Buscar nombre/apellido...">#}
+{#                                #}{# O un select:#}
+{#                             <select id="filtro-paciente" name="id_paciente" class="form-select form-select-sm js-select2-paciente">#}
+{#                                 <option value="">Todos los pacientes</option>#}
+{#                                 {% for p in lista_pacientes_filtro %} <option value="{{ p.id_usuario }}">{{ p.apellido }}, {{ p.nombre }}</option> {% endfor %}#}
+{#                             </select>#}
+{#                                #}
+{#                            </div>#}
+{#                            <div class="col-md-3">#}
+{#                                <label for="filtro-examen" class="form-label form-label-sm">Examen</label>#}
+{#                                #}{# Usar un input simple o un select con Select2 #}
+{#                                <input type="text" id="filtro-examen-nombre" class="form-control form-control-sm" placeholder="Buscar nombre/código...">#}
+{#                                #}{# O un select:#}
+{#                             <select id="filtro-examen" name="id_examen" class="form-select form-select-sm js-select2-examen">#}
+{#                                 <option value="">Todos los exámenes</option>#}
+{#                                  {% for e in lista_examenes_filtro %} <option value="{{ e.id_examen }}">{{ e.nombre_examen }}</option> {% endfor %}#}
+{#                             </select>#}
+{#                                #}
+{#                            </div>#}
+{#                            <div class="col-md-2">#}
+{#                                <label for="filtro-estado-cal" class="form-label form-label-sm">Estado</label>#}
+{#                                <select id="filtro-estado-cal" name="estado" class="form-select form-select-sm">#}
+{#                                    <option value="">Todos</option>#}
+{#                                    #}{# Asumiendo que Citas::ESTADOS_CITA es accesible o lo pasas desde el controlador #}
+{#                                    {% for estado in estados_posibles %}#}
+{#                                        <option value="{{ estado }}">{{ estado }}</option>#}
+{#                                    {% endfor %}#}
+{#                                </select>#}
+{#                            </div>#}
+{#                            <div class="col-md-2">#}
+{#                                <button id="btn-aplicar-filtros-cal" class="btn btn-sm btn-primary w-100">#}
+{#                                    <i class="fas fa-filter me-1"></i> Aplicar Filtros#}
+{#                                </button>#}
+{#                            </div>#}
+{#                            <div class="col-md-2">#}
+{#                                <button id="btn-limpiar-filtros-cal" class="btn btn-sm btn-outline-secondary w-100">#}
+{#                                    <i class="fas fa-times me-1"></i> Limpiar#}
+{#                                </button>#}
+{#                            </div>#}
+{#                        </div>#}
+                        {# --- Contenedor del Calendario --- #}
+                        <div id='calendar'>
+                            <div class="text-center p-5"> <span class="spinner-border spinner-border-sm"></span> Cargando calendario...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# --- Modal para Detalles/Acciones de Cita --- #}
+        <div class="modal fade" id="citaModal" tabindex="-1" aria-labelledby="citaModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="citaModalLabel">Detalles de la Cita</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {# El contenido se cargará aquí con JavaScript #}
+                        <div id="citaModalContent" class="text-center">
+                            <span class="spinner-border spinner-border-sm"></span> Cargando...
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <div> {# Botones de acción a la izquierda #}
+{#                            <button type="button" id="btn-cancelar-cita-modal" class="btn btn-danger btn-sm jsCancel" data-id="">#}
+{#                                <i class="fas fa-calendar-times me-1"></i> Cancelar Cita#}
+{#                            </button>#}
+                            {# Podrías añadir botón para cambiar estado aquí también #}
+                            <select id="select-cambiar-estado-modal" class="form-select form-select-sm d-inline-block w-auto js-change-status" data-id="">
+                                <option value="">Cambiar estado...</option>
+                                {% for estado in estados_posibles %} <option value="{{ estado }}">{{ estado }}</option> {% endfor %}
+                            </select>
+                        </div>
+                        <div> {# Botones estándar a la derecha #}
+                            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cerrar</button>
+                            <a href="#" id="btn-editar-cita-modal" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit me-1"></i> Editar/Reprogramar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# --- Fin Modal --- #}
+
+    </div>
+{% endblock %}
+
+
+{% block footer_scripts %}
+    {# Bloque footer_scripts en tu plantilla Twig #}
+
+    {# Bloque footer_scripts en tu plantilla Twig #}
+
+    {# --- FullCalendar JS (CDN) --- #}
+    {# ESTE ES EL ARCHIVO PRINCIPAL QUE NECESITAS para uso global #}
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+
+    {# Locale Español (Opcional pero recomendado) #}
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core/locales/es.global.min.js'></script>
+
+    {# *** ASEGÚRATE DE QUITAR ESTA LÍNEA SI LA TENÍAS *** #}
+    {# <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.js'></script> #}
+
+    {# <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> #}
+
+    {# Script específico para citas #}
+    <script>
+        const tipo = "calendar"; // Indica que estamos en la vista de calendario
+        // Pasar datos necesarios a JS
+        const feedUrl = '{{ general.full_web_url }}ajax/admin/citas_feed.php'; // Endpoint para eventos
+        const citaHandlerUrl = '{{ general.full_web_url }}ajax/admin/cita_handler.php'; // Endpoint para acciones
+        const editUrlBase = '{{ general.full_web_url }}?class=citas&action=edit&id='; // URL base para editar
+        const ESTADOS_CITA_JS = {{ estados_posibles | json_encode | raw }}; // Pasar estados a JS
+    </script>
+    <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/cita.js"></script>
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends "baseDocument.twig" %} {# Ajusta el nombre de tu plantilla base si es diferente #}
+
+{% block content %}
+    <div class="container mt-4"> {# Usar mt-4 para margen superior si no lo da la base #}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card shadow"> {# Quitar bg-secondary si prefieres fondo blanco #}
+                    <div class="card-header"> {# Quitar bg-white border-0 si usas estilo por defecto #}
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h2 class="mb-0">Gestión de Usuarios <i class="fas fa-users ms-2"></i></h2> {# Usar íconos FontAwesome 6 #}
+                            </div>
+                            <div class="col-4 text-end"> {# text-right es obsoleto en Bootstrap 5 -> text-end #}
+                                <a href="?class=usuarios&action=create" class="btn btn-sm btn-success">
+                                    <i class="fas fa-plus me-1"></i> Crear Usuario
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        {# --- Área del buscador --- #}
+{#                        <form method="get" action="" class="mb-3">#}
+{#                            <input type="hidden" name="class" value="usuarios">#}
+{#                            <input type="hidden" name="action" value="list">#}
+{#                            <div class="row justify-content-center">#}
+{#                                <div class="col-md-4">#}
+{#                                    <div class="input-group">#}
+{#                                        <input type="text" name="search" value="{{ general.current_search | default('') }}" class="form-control form-control-sm JScriterio" placeholder="Buscar por nombre, apellido, doc, email...">#}
+{#                                        <button class="btn btn-sm btn-primary JSbtnhSearh" type="submit">#}
+{#                                            <i class="fas fa-search"></i> Buscar#}
+{#                                        </button>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </form>#}
+                        {# --- Fin Buscador --- #}
+
+                        {# --- Tabla de Usuarios --- #}
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush table-hover"> {# Añadir table-hover #}
+                                <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Nombre Completo</th>
+                                    <th scope="col">Documento</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col" class="text-end">Acciones</th>
+                                </tr>
+                                </thead>
+                                <tbody class="list">
+                                {# El controlador debe pasar la variable 'usuarios' #}
+                                {% for user in usuarios %}
+                                    <tr data-id="{{ user.id_usuario }}">
+                                        <td>{{ user.apellido }} {{ user.nombre }}</td>
+                                        <td>{{ user.tipo_documento }}: {{ user.documento }}</td>
+                                        <td>{{ user.email }}</td>
+                                        <td>{{ user.nombre_rol | default('N/A') }}</td> {# Asume que getAll trae nombre_rol #}
+                                        <td>{{ user.telefono | default('-') }}</td>
+                                        <td>
+                                            {# Mostrar badge según estado 'activo' #}
+                                            {% if user.activo %}
+                                                <span class="badge bg-success">Activo</span>
+                                            {% else %}
+                                                <span class="badge bg-danger">Inactivo</span>
+                                            {% endif %}
+                                        </td>
+                                        <td class="text-end">
+                                            <a href="?class=usuarios&action=edit&id={{ user.id_usuario }}"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" {# Tooltip Bootstrap 5 -> data-bs-* #}
+                                               title="Editar Usuario"
+                                               class="btn btn-sm btn-info me-1"> {# Cambiado a btn-info #}
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            {# Botón eliminar usa JS para confirmar y llamar AJAX #}
+                                            <button type="button"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Eliminar Usuario (Desactivar)"
+                                                    class="btn btn-sm btn-danger jsDelete"
+                                                    data-id="{{ user.id_usuario }}"
+                                                    data-nombre="{{ user.nombre }} {{ user.apellido }}"> {# Añadir nombre para confirmación #}
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="7" class="text-center fst-italic py-3">No se encontraron usuarios.</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {# --- Fin Tabla --- #}
+
+                        {# --- Paginación --- #}
+                        {# Incluir tu plantilla de paginación si la tienes y pasas los datos 'paginacion' #}
+                        {# {% include 'layout/pagination.twig' with {'pagination': paginacion} %} #}
+                    </div> {# Fin card-body #}
+                </div> {# Fin card #}
+            </div> {# Fin col-md-12 #}
+        </div> {# Fin row #}
+    </div> {# Fin container #}
+{% endblock %}
+
+{% block footer_scripts %}
+    {# Pasar constantes al JS #}
+    <script>
+        const tipo = "list"; // Indica a JS que estamos en la vista de lista
+    </script>
+    {# Incluir el JS específico para usuarios #}
+    <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/usuario.js"></script>
+{% endblock %}

@@ -1,0 +1,1732 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ordertaken\n"
+"POT-Creation-Date: 2019-10-31 09:01-0500\n"
+"PO-Revision-Date: 2019-10-31 09:01-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-Basepath: ../../../temp\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cache/08/08cf8153c4d9607ed514ec20bd35ee076d7096eeeb5877d295cc7a7a2d5dcb42.php:44
+msgid "Listado de productos"
+msgstr "Product List"
+
+#: cache/08/08cf8153c4d9607ed514ec20bd35ee076d7096eeeb5877d295cc7a7a2d5dcb42.php:51
+msgid "Administre los productos"
+msgstr "Manage the products"
+
+#: cache/08/08cf8153c4d9607ed514ec20bd35ee076d7096eeeb5877d295cc7a7a2d5dcb42.php:63
+#: cache/4a/4ac0bee310257f22df9e519a26f77ad8d3d1edc1723b41012fdb5810f42f2fd2.php:42
+msgid "Crear producto"
+msgstr "Create product"
+
+#: cache/08/08cf8153c4d9607ed514ec20bd35ee076d7096eeeb5877d295cc7a7a2d5dcb42.php:89
+#: cache/08/08cf8153c4d9607ed514ec20bd35ee076d7096eeeb5877d295cc7a7a2d5dcb42.php:141
+#: cache/4c/4ce00eb57bbbb05eb18a23e8251f33fdf2c280c2d1288e2053168632fedf9408.php:133
+#: cache/53/53ebf3519745e07b6682b4e27c6b0b5931227112299b560c86c104396d4b7aa2.php:88
+#: cache/53/53ebf3519745e07b6682b4e27c6b0b5931227112299b560c86c104396d4b7aa2.php:132
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:182
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:68
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:814
+#: cache/7e/7e44ecbfe41c128656f2640130346816c59aa35cc96ede02e9054a85a8785b81.php:79
+#: cache/96/9640b7bc1826c6abbe4f00e5da6843511e6517dbf8247ba16a181196d8bb20ad.php:84
+#: cache/ad/ad11c10f37b5d9406c38199a275fad4b8b6a0ec77228ea7e66e819b1a4f5e60f.php:89
+#: cache/ad/ad11c10f37b5d9406c38199a275fad4b8b6a0ec77228ea7e66e819b1a4f5e60f.php:134
+#: cache/b5/b53c94061bf7d90ec18bad439bc00bb463dbf5a239e951a9bf61dbc78c919fbe.php:62
+#: cache/c5/c527269b7546fcac012141907d2cf1aa11943575bcb204cc61f2e37d98663f09.php:89
+#: cache/c5/c527269b7546fcac012141907d2cf1aa11943575bcb204cc61f2e37d98663f09.php:134
+#: cache/d7/d75eb557cfa0f00a7a54d2ba659c0647062f08c503b1e5f7c3a0fa9c1d498d0a.php:74
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:68
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:75
+msgid "Nombre"
+msgstr "Name"
+
+#: cache/08/08cf8153c4d9607ed514ec20bd35ee076d7096eeeb5877d295cc7a7a2d5dcb42.php:105
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:187
+#: cache/4c/4ce00eb57bbbb05eb18a23e8251f33fdf2c280c2d1288e2053168632fedf9408.php:104
+#: cache/53/53ebf3519745e07b6682b4e27c6b0b5931227112299b560c86c104396d4b7aa2.php:104
+#: cache/ad/ad11c10f37b5d9406c38199a275fad4b8b6a0ec77228ea7e66e819b1a4f5e60f.php:105
+#: cache/c5/c527269b7546fcac012141907d2cf1aa11943575bcb204cc61f2e37d98663f09.php:105
+msgid "Buscar"
+msgstr "Search"
+
+#: cache/08/08cf8153c4d9607ed514ec20bd35ee076d7096eeeb5877d295cc7a7a2d5dcb42.php:134
+msgid "Imagen"
+msgstr "Image"
+
+#: cache/08/08cf8153c4d9607ed514ec20bd35ee076d7096eeeb5877d295cc7a7a2d5dcb42.php:149
+#: cache/4a/4ac0bee310257f22df9e519a26f77ad8d3d1edc1723b41012fdb5810f42f2fd2.php:92
+#: cache/9f/9fe87d8a8a64f6be01ed58a34f9fd0a398f7070bb2c8c863e3d6ecacd3e504fc.php:137
+msgid "Precio"
+msgstr "Price"
+
+#: cache/08/08cf8153c4d9607ed514ec20bd35ee076d7096eeeb5877d295cc7a7a2d5dcb42.php:156
+#: cache/4a/4ac0bee310257f22df9e519a26f77ad8d3d1edc1723b41012fdb5810f42f2fd2.php:104
+#: cache/9f/9fe87d8a8a64f6be01ed58a34f9fd0a398f7070bb2c8c863e3d6ecacd3e504fc.php:151
+msgid "Etiquetas"
+msgstr "Tags"
+
+#: cache/08/08cf8153c4d9607ed514ec20bd35ee076d7096eeeb5877d295cc7a7a2d5dcb42.php:163
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:251
+#: cache/4c/4ce00eb57bbbb05eb18a23e8251f33fdf2c280c2d1288e2053168632fedf9408.php:153
+#: cache/53/53ebf3519745e07b6682b4e27c6b0b5931227112299b560c86c104396d4b7aa2.php:153
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:189
+#: cache/c5/c527269b7546fcac012141907d2cf1aa11943575bcb204cc61f2e37d98663f09.php:149
+msgid "Opciones"
+msgstr "Options"
+
+#: cache/08/08cf8153c4d9607ed514ec20bd35ee076d7096eeeb5877d295cc7a7a2d5dcb42.php:258
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:301
+#: cache/4c/4ce00eb57bbbb05eb18a23e8251f33fdf2c280c2d1288e2053168632fedf9408.php:192
+#: cache/53/53ebf3519745e07b6682b4e27c6b0b5931227112299b560c86c104396d4b7aa2.php:203
+#: cache/ad/ad11c10f37b5d9406c38199a275fad4b8b6a0ec77228ea7e66e819b1a4f5e60f.php:186
+#: cache/c5/c527269b7546fcac012141907d2cf1aa11943575bcb204cc61f2e37d98663f09.php:181
+msgid "Editar"
+msgstr "Edit"
+
+#: cache/08/08cf8153c4d9607ed514ec20bd35ee076d7096eeeb5877d295cc7a7a2d5dcb42.php:266
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:308
+#: cache/4c/4ce00eb57bbbb05eb18a23e8251f33fdf2c280c2d1288e2053168632fedf9408.php:200
+#: cache/53/53ebf3519745e07b6682b4e27c6b0b5931227112299b560c86c104396d4b7aa2.php:211
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:550
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:749
+#: cache/ad/ad11c10f37b5d9406c38199a275fad4b8b6a0ec77228ea7e66e819b1a4f5e60f.php:193
+#: cache/c5/c527269b7546fcac012141907d2cf1aa11943575bcb204cc61f2e37d98663f09.php:188
+msgid "Eliminar"
+msgstr "Delete"
+
+#: cache/08/08cf8153c4d9607ed514ec20bd35ee076d7096eeeb5877d295cc7a7a2d5dcb42.php:300
+msgid "Total Productos"
+msgstr "Total Products"
+
+#: cache/09/090e3e901ef993a4fd9960277e11bcdc2ad16eea7eaa872e7695587a13ca4787.php:69
+msgid "LISTADO IVR"
+msgstr "IVR LIST"
+
+#: cache/09/090e3e901ef993a4fd9960277e11bcdc2ad16eea7eaa872e7695587a13ca4787.php:76
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:75
+msgid "Administrar información de IVR"
+msgstr "Manage IVR information"
+
+#: cache/09/090e3e901ef993a4fd9960277e11bcdc2ad16eea7eaa872e7695587a13ca4787.php:88
+msgid "Añadir IVR"
+msgstr "Add IVR"
+
+#: cache/09/090e3e901ef993a4fd9960277e11bcdc2ad16eea7eaa872e7695587a13ca4787.php:108
+msgid "Nombre IVR"
+msgstr "IVR Name"
+
+#: cache/09/090e3e901ef993a4fd9960277e11bcdc2ad16eea7eaa872e7695587a13ca4787.php:140
+#: cache/4a/4ac0bee310257f22df9e519a26f77ad8d3d1edc1723b41012fdb5810f42f2fd2.php:118
+#: cache/4a/4ac0bee310257f22df9e519a26f77ad8d3d1edc1723b41012fdb5810f42f2fd2.php:128
+#: cache/7c/7c1521aa2bf7ea908dc7d3143a018b4d197cd18a662d9e4853246a04f5519a0c.php:90
+#: cache/7c/7c1521aa2bf7ea908dc7d3143a018b4d197cd18a662d9e4853246a04f5519a0c.php:100
+#: cache/a8/a842a89ad9b6d6c626664f94186e07356e704014ce3437155424ebb242cdf924.php:221
+#: cache/a8/a842a89ad9b6d6c626664f94186e07356e704014ce3437155424ebb242cdf924.php:230
+#: cache/b5/b53c94061bf7d90ec18bad439bc00bb463dbf5a239e951a9bf61dbc78c919fbe.php:138
+#: cache/b5/b53c94061bf7d90ec18bad439bc00bb463dbf5a239e951a9bf61dbc78c919fbe.php:148
+#: cache/bc/bcddd882bd6ada1a4ce38ffb9fb7d0f78c91c8e0b6b5bece26eb400d39b24ffc.php:101
+#: cache/bc/bcddd882bd6ada1a4ce38ffb9fb7d0f78c91c8e0b6b5bece26eb400d39b24ffc.php:110
+#: cache/d7/d75eb557cfa0f00a7a54d2ba659c0647062f08c503b1e5f7c3a0fa9c1d498d0a.php:88
+#: cache/d7/d75eb557cfa0f00a7a54d2ba659c0647062f08c503b1e5f7c3a0fa9c1d498d0a.php:97
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:248
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:258
+msgid "CREAR"
+msgstr "CREATE"
+
+#: cache/09/090e3e901ef993a4fd9960277e11bcdc2ad16eea7eaa872e7695587a13ca4787.php:147
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:307
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:695
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:140
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:154
+msgid "Acciones"
+msgstr "Actions"
+
+#: cache/09/090e3e901ef993a4fd9960277e11bcdc2ad16eea7eaa872e7695587a13ca4787.php:179
+msgid "Configurar Ivr"
+msgstr "Configure Ivr"
+
+#: cache/09/090e3e901ef993a4fd9960277e11bcdc2ad16eea7eaa872e7695587a13ca4787.php:190
+msgid "Clonar ivr con su configuración"
+msgstr "Clone ivr with your configuration"
+
+#: cache/09/090e3e901ef993a4fd9960277e11bcdc2ad16eea7eaa872e7695587a13ca4787.php:198
+msgid "Eliminar ivr"
+msgstr "Remove ivr"
+
+#: cache/09/090e3e901ef993a4fd9960277e11bcdc2ad16eea7eaa872e7695587a13ca4787.php:234
+msgid "Total Ivrs"
+msgstr "Total Ivrs"
+
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:43
+msgid "Total Integrantes colas de soporte"
+msgstr "Total Members support queues"
+
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:49
+msgid "Total Asignar colas"
+msgstr "Total Assign Queues"
+
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:68
+msgid "Total Extensiones sin cola"
+msgstr "Total Extensions without tail"
+
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:101
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:206
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:270
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:333
+msgid "Bajar Prioridad"
+msgstr "Lower Priority"
+
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:107
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:212
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:275
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:338
+msgid "Subir Prioridad"
+msgstr "Upload Priority"
+
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:129
+msgid "Remover extensiones seleccionadas de la cola"
+msgstr "Remove selected extensions from the queue"
+
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:140
+msgid "Asignar extensiones seleccionadas a la cola"
+msgstr "Assign selected extensions to the queue"
+
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:154
+msgid "Extensiones con cola"
+msgstr "Tail extensions"
+
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:166
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:173
+msgid "Prioridad 1"
+msgstr "Priority 1"
+
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:231
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:238
+msgid "Prioridad 2"
+msgstr "Priority 2"
+
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:294
+#: cache/2e/2eba5fd53a1254a48f4a991fd34c0453d5127c555f8a1700210a0031ac831abd.php:301
+msgid "Prioridad 3"
+msgstr "Priority 3"
+
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:44
+msgid "Listado de extensiones"
+msgstr "Extension List"
+
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:51
+msgid "Administre sus extensiones telefónicas"
+msgstr "Manage your phone extensions"
+
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:63
+#: cache/7c/7c1521aa2bf7ea908dc7d3143a018b4d197cd18a662d9e4853246a04f5519a0c.php:42
+msgid "Crear Extensión"
+msgstr "Crear Extensión"
+
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:89
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:216
+#: cache/96/9640b7bc1826c6abbe4f00e5da6843511e6517dbf8247ba16a181196d8bb20ad.php:166
+#: cache/ad/ad11c10f37b5d9406c38199a275fad4b8b6a0ec77228ea7e66e819b1a4f5e60f.php:148
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:179
+#: cache/f9/f9fc37e926b6319bf75e365345e5aea27ded4ac7328c11bcdebe377da950d0aa.php:68
+msgid "Extensión"
+msgstr "Extension"
+
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:108
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:133
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:157
+msgid "Todas las extensiones"
+msgstr "All extensions"
+
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:115
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:140
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:164
+msgid "Extensiones sin usuario"
+msgstr "Userless extensions"
+
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:122
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:147
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:171
+msgid "Extensiones con usuario"
+msgstr "User extensions"
+
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:223
+msgid "Usuario Teléfono"
+msgstr "User Phone"
+
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:230
+msgid "Usuario asignado"
+msgstr "Assigned user"
+
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:237
+msgid "Clave Teléfono"
+msgstr "Telephone key"
+
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:244
+msgid "Servidor"
+msgstr "Server"
+
+#: cache/32/32e8233e74df39a81ea1c51d84d2c9db7e8cb3eeca510b3b36c405b0903cb67a.php:340
+msgid "Total Extensiones"
+msgstr "Total Extensions"
+
+#: cache/33/33fb7cb4a2a4a1ee2f693e3eecec706ece652b3eeff06b105c4f80a513cafddb.php:44
+msgid "Listado de DID"
+msgstr "DID list"
+
+#: cache/33/33fb7cb4a2a4a1ee2f693e3eecec706ece652b3eeff06b105c4f80a513cafddb.php:51
+msgid "Administre sus DID"
+msgstr "Manage your DID"
+
+#: cache/33/33fb7cb4a2a4a1ee2f693e3eecec706ece652b3eeff06b105c4f80a513cafddb.php:69
+msgid "Filtrar DID"
+msgstr "DID filter"
+
+#: cache/33/33fb7cb4a2a4a1ee2f693e3eecec706ece652b3eeff06b105c4f80a513cafddb.php:78
+msgid "Filtrar"
+msgstr "Filter"
+
+#: cache/33/33fb7cb4a2a4a1ee2f693e3eecec706ece652b3eeff06b105c4f80a513cafddb.php:92
+msgid "Editar Nombre"
+msgstr "Edit Name"
+
+#: cache/33/33fb7cb4a2a4a1ee2f693e3eecec706ece652b3eeff06b105c4f80a513cafddb.php:99
+#: cache/d7/d75eb557cfa0f00a7a54d2ba659c0647062f08c503b1e5f7c3a0fa9c1d498d0a.php:62
+msgid "DID"
+msgstr "DID"
+
+#: cache/33/33fb7cb4a2a4a1ee2f693e3eecec706ece652b3eeff06b105c4f80a513cafddb.php:106
+msgid "Editar Descripción"
+msgstr "Edit Description"
+
+#: cache/33/33fb7cb4a2a4a1ee2f693e3eecec706ece652b3eeff06b105c4f80a513cafddb.php:113
+msgid "Editar Opciones"
+msgstr "Edit Options"
+
+#: cache/33/33fb7cb4a2a4a1ee2f693e3eecec706ece652b3eeff06b105c4f80a513cafddb.php:159
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:42
+msgid "Editar Did"
+msgstr "Edit Did"
+
+#: cache/33/33fb7cb4a2a4a1ee2f693e3eecec706ece652b3eeff06b105c4f80a513cafddb.php:192
+msgid "Total DID"
+msgstr "Total DID"
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:45
+msgid "Actualización Exitosa"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:49
+msgid "Error en la creación"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:53
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:301
+msgid "Error en la Eliminación"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:57
+msgid "Error en la Actualización"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:62
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:324
+msgid "Debe ingresar un Nombre"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:66
+msgid "Debe ingresar Tiempo Maximo"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:70
+msgid "Debe Seleccionar un tipo de cola"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:74
+msgid "Debe ingrear un numero de intentos"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:80
+msgid "cola Guardada"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:84
+msgid "Selecciona una cola antes de remover"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:90
+msgid "Debe ingresar una identificación"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:94
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:354
+msgid "Debe ingresar un nombre"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:98
+msgid "Debe ingresar un apellido"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:102
+msgid "Debe ingresar al menos  una dirección"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:106
+msgid "Debe ingresar al menos  un teléfono"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:110
+msgid "Cliente Guardado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:114
+msgid "Cliente Actualizado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:118
+msgid "Cliente Eliminado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:124
+msgid "Debe ingresar un Did"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:128
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:428
+msgid "Debe de ingresar el nombre al ivr"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:132
+msgid "Debe de ingresar una fecha de inicio"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:136
+msgid "Debe de ingresar una fecha final"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:140
+msgid "Debe ingresar una hora de inicio"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:144
+msgid "Debe ingresar una hora final"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:148
+msgid "Debe seleccionar un ivr para crear un horario"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:152
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:432
+msgid "Debe de agregar una opción"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:156
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:436
+msgid "Debe seleccionar un destino"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:160
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:440
+msgid "Debe agregar el tiempo"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:164
+msgid "la hora inicial debe ser menor a la final"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:168
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:281
+msgid "La extensión debe de estar entre 100 y 999"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:173
+msgid "Did Guardado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:177
+msgid "Did ya existe"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:181
+msgid "Seleccione al menos un día para el horario"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:185
+msgid "Existe un horario superpuesto a este, cambie el rango de horas"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:189
+msgid "Horario superpuesto, Horario no actualizado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:193
+msgid "Horario no registrado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:197
+msgid "Horario registrado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:201
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:259
+msgid "Horario Eliminado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:205
+msgid "La fecha inicial no debe ser mayor a la final"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:209
+msgid "Horario no laboral registrado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:213
+msgid "Está  a punto de eliminar este horario!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:217
+msgid "Está  seguro que desea eliminarlo?"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:221
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:234
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:255
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:318
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:404
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:494
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:517
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:530
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:603
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:671
+msgid "Si, Eliminar!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:226
+msgid "Está a punto de eliminar una Did!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:230
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:251
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:400
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:490
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:526
+msgid "Está seguro que desea eliminarlo?"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:238
+msgid "Did eliminado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:242
+msgid "Ivr con ese nombre ya existe"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:247
+msgid "Está a punto de eliminar un Horario!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:263
+msgid "Horario no laboral, no registrado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:267
+msgid "Horario no laboral, no actualizado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:271
+msgid "Ivr fuera de horario no actualizado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:277
+msgid "Debe ingresar una extensión"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:285
+msgid "Ingresar una clave válida"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:289
+msgid "Extensión ya existe"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:293
+msgid "Extensión Guardada"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:297
+msgid "Extensión Actualizada"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:305
+msgid "Extensión eliminada"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:310
+msgid "Está apunto de eliminar una Extensión!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:314
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:513
+msgid "Está seguro que desea eliminarla?"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:328
+msgid "Debe ingresar una Dirección"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:332
+msgid "Debe ingresar un Teléfono"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:336
+msgid "Sucursal ya existe"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:340
+msgid "Sucursal Guardada"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:344
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:391
+msgid "Actualizacion Exitosa"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:350
+msgid "Debe ingresar un usuario (Inicio Sesión)"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:358
+msgid "Debe ingresar una contraseña"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:362
+msgid "Debe repetir la contraseña"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:366
+msgid "Debe ingresar un de correo"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:370
+msgid "Debe Seleccionar un tipo de usuario"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:374
+msgid "Debe de seleccionar mínimo una sucursal"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:379
+msgid "Contraseñas diferentes"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:383
+msgid "Usuario ya existe"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:387
+msgid "Usuario Guardado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:396
+msgid "Está a punto de eliminar un usuario!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:410
+msgid "Deseleccionar todos"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:414
+msgid "Seleccionar todos"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:418
+msgid "Seleccionar"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:422
+msgid "No hay resultados"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:444
+msgid "Ingresar Nombre al Audio"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:449
+msgid "SELECCIONAR AUDIO"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:453
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:625
+msgid "QUITAR"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:457
+msgid "No se pudo clonar el ivr"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:461
+msgid "Nombre Ivr ya existe, Ivr no Guardado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:465
+msgid "Ivr no fué Guardado."
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:469
+msgid "Nombre ivr Guardado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:473
+msgid "Ivr Eliminado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:477
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:544
+msgid "Existe un Ivr con el mismo nombre"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:481
+msgid "Seleccione un ivr para registrar la opción"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:486
+msgid "Está a punto de eliminar un ivr!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:499
+msgid "Prioridad no Guardada"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:503
+msgid "Se actualiza la prioridad"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:509
+msgid "Está a punto de eliminar esta opción de ivr"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:522
+msgid "Está a punto de eliminar un audio"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:535
+msgid ""
+"El ivr a eliminar se encuentra en Fuera de horario, debe cambiarlo antes de "
+"eliminar"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:540
+msgid "El ivr a eliminar se encuentra en un Did"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:548
+msgid "Ivr Guardado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:555
+msgid "Audio no eliminado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:559
+msgid "Audio eliminado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:563
+msgid "Audio se encuentra en un IVR, Audio no Eliminado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:568
+msgid "Llenar todos los campos"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:572
+msgid "Formato de audio debe ser .mp3"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:576
+msgid "Error al subir el archivo!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:580
+msgid "No se pudo registrar el audio!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:584
+msgid "Error al eliminar archivo en el servidor"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:588
+msgid "Archivo no movido, Registro no exitoso!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:595
+msgid "Esta a punto de eliminar una Producto!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:599
+msgid "Esta seguro que desea eliminarlo?"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:609
+msgid "Debe ingresar un producto"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:613
+msgid "Debe ingresar el precio del producto"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:617
+msgid "Debe ingresar al menos una etiqueta"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:621
+msgid "SELECCIONAR IMAGEN"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:629
+msgid "Producto Guardado"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:636
+msgid "Está a punto de cancelar el pedido!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:640
+msgid "Está seguro que cancelar el pedido?"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:644
+msgid "Si, Cancelar!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:649
+msgid "Está a punto de confirmar el pedido!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:653
+msgid "Está seguro que confirmar el pedido?"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:657
+msgid "Si, Confirmar!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:663
+msgid "Está a punto de eliminar un producto del pedido!"
+msgstr ""
+
+#: cache/35/35cd43389b03c4b085e1504c91a4b49b8b8af44380d865dc01575f634ca7aff1.php:667
+msgid "Está seguro que desea eliminar?"
+msgstr ""
+
+#: cache/3c/3cb798a2875ed42a987d172f007c617572a1b917e825c674b25ac9fff128670b.php:60
+msgid "Volver"
+msgstr "Return"
+
+#: cache/42/42a2fadad6d438231eb388d9b000b97eb1a31560823a74e3c5d5823500c515c0.php:54
+msgid "Did"
+msgstr "Did"
+
+#: cache/42/42a2fadad6d438231eb388d9b000b97eb1a31560823a74e3c5d5823500c515c0.php:75
+msgid "Sucursales"
+msgstr "Branch Offices"
+
+#: cache/42/42a2fadad6d438231eb388d9b000b97eb1a31560823a74e3c5d5823500c515c0.php:96
+msgid "Extensiones"
+msgstr "Extensions"
+
+#: cache/42/42a2fadad6d438231eb388d9b000b97eb1a31560823a74e3c5d5823500c515c0.php:118
+msgid "Usuarios"
+msgstr "Users"
+
+#: cache/42/42a2fadad6d438231eb388d9b000b97eb1a31560823a74e3c5d5823500c515c0.php:141
+msgid "Clientes"
+msgstr "Customers"
+
+#: cache/42/42a2fadad6d438231eb388d9b000b97eb1a31560823a74e3c5d5823500c515c0.php:163
+msgid "Colas"
+msgstr "Tails"
+
+#: cache/42/42a2fadad6d438231eb388d9b000b97eb1a31560823a74e3c5d5823500c515c0.php:184
+msgid "Pedidos"
+msgstr "Orders"
+
+#: cache/42/42a2fadad6d438231eb388d9b000b97eb1a31560823a74e3c5d5823500c515c0.php:205
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:300
+msgid "Ivr"
+msgstr "Ivr"
+
+#: cache/42/42a2fadad6d438231eb388d9b000b97eb1a31560823a74e3c5d5823500c515c0.php:226
+msgid "Productos"
+msgstr "Products"
+
+#: cache/42/42a2fadad6d438231eb388d9b000b97eb1a31560823a74e3c5d5823500c515c0.php:246
+msgid "Cerrar sesión"
+msgstr "Sign off"
+
+#: cache/4a/4ac0bee310257f22df9e519a26f77ad8d3d1edc1723b41012fdb5810f42f2fd2.php:49
+#: cache/7c/7c1521aa2bf7ea908dc7d3143a018b4d197cd18a662d9e4853246a04f5519a0c.php:49
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:51
+#: cache/92/921bd9362d716b6a7192bb2e58cda37c771b2c301933a0f4d22a1aa9e05777eb.php:49
+#: cache/96/9640b7bc1826c6abbe4f00e5da6843511e6517dbf8247ba16a181196d8bb20ad.php:51
+#: cache/9f/9fe87d8a8a64f6be01ed58a34f9fd0a398f7070bb2c8c863e3d6ecacd3e504fc.php:49
+#: cache/a8/a842a89ad9b6d6c626664f94186e07356e704014ce3437155424ebb242cdf924.php:49
+#: cache/b5/b53c94061bf7d90ec18bad439bc00bb463dbf5a239e951a9bf61dbc78c919fbe.php:49
+#: cache/bc/bcddd882bd6ada1a4ce38ffb9fb7d0f78c91c8e0b6b5bece26eb400d39b24ffc.php:49
+#: cache/cc/cc30d51849d7d94f4661cc5799e0495bf45a01f869d6a2022b1e6fdcdf46a6ee.php:51
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:51
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:49
+#: cache/f9/f9fc37e926b6319bf75e365345e5aea27ded4ac7328c11bcdebe377da950d0aa.php:51
+msgid "Complete los siguientes datos"
+msgstr "Complete the following information"
+
+#: cache/4a/4ac0bee310257f22df9e519a26f77ad8d3d1edc1723b41012fdb5810f42f2fd2.php:80
+#: cache/9f/9fe87d8a8a64f6be01ed58a34f9fd0a398f7070bb2c8c863e3d6ecacd3e504fc.php:122
+msgid "Nombre Producto"
+msgstr "Product Name"
+
+#: cache/4c/4ce00eb57bbbb05eb18a23e8251f33fdf2c280c2d1288e2053168632fedf9408.php:44
+msgid "Listado de clientes"
+msgstr "Customer List"
+
+#: cache/4c/4ce00eb57bbbb05eb18a23e8251f33fdf2c280c2d1288e2053168632fedf9408.php:51
+msgid "Administre los clientes que tendrán acceso a la plataforma"
+msgstr "Manage customers who will have access to the platform"
+
+#: cache/4c/4ce00eb57bbbb05eb18a23e8251f33fdf2c280c2d1288e2053168632fedf9408.php:63
+#: cache/a8/a842a89ad9b6d6c626664f94186e07356e704014ce3437155424ebb242cdf924.php:42
+msgid "Crear Cliente"
+msgstr "Create Client"
+
+#: cache/4c/4ce00eb57bbbb05eb18a23e8251f33fdf2c280c2d1288e2053168632fedf9408.php:88
+msgid "Nombre o Apellido"
+msgstr "First or Last Name"
+
+#: cache/4c/4ce00eb57bbbb05eb18a23e8251f33fdf2c280c2d1288e2053168632fedf9408.php:140
+#: cache/92/921bd9362d716b6a7192bb2e58cda37c771b2c301933a0f4d22a1aa9e05777eb.php:70
+#: cache/a8/a842a89ad9b6d6c626664f94186e07356e704014ce3437155424ebb242cdf924.php:62
+msgid "Identificación"
+msgstr "ID"
+
+#: cache/4c/4ce00eb57bbbb05eb18a23e8251f33fdf2c280c2d1288e2053168632fedf9408.php:146
+#: cache/53/53ebf3519745e07b6682b4e27c6b0b5931227112299b560c86c104396d4b7aa2.php:139
+#: cache/ad/ad11c10f37b5d9406c38199a275fad4b8b6a0ec77228ea7e66e819b1a4f5e60f.php:141
+msgid "Estado"
+msgstr "State"
+
+#: cache/4c/4ce00eb57bbbb05eb18a23e8251f33fdf2c280c2d1288e2053168632fedf9408.php:234
+msgid "Total clientes"
+msgstr "Total clients"
+
+#: cache/53/53ebf3519745e07b6682b4e27c6b0b5931227112299b560c86c104396d4b7aa2.php:44
+msgid "Listado de colas"
+msgstr "Queue List"
+
+#: cache/53/53ebf3519745e07b6682b4e27c6b0b5931227112299b560c86c104396d4b7aa2.php:51
+msgid "Administre las colas"
+msgstr "Manage the queues"
+
+#: cache/53/53ebf3519745e07b6682b4e27c6b0b5931227112299b560c86c104396d4b7aa2.php:63
+#: cache/b5/b53c94061bf7d90ec18bad439bc00bb463dbf5a239e951a9bf61dbc78c919fbe.php:42
+msgid "Crear Cola"
+msgstr "Create Queue"
+
+#: cache/53/53ebf3519745e07b6682b4e27c6b0b5931227112299b560c86c104396d4b7aa2.php:146
+msgid "Estrategia"
+msgstr "Strategy"
+
+#: cache/53/53ebf3519745e07b6682b4e27c6b0b5931227112299b560c86c104396d4b7aa2.php:190
+msgid "Asignar extensión a la cola"
+msgstr "Assign extension to queue"
+
+#: cache/53/53ebf3519745e07b6682b4e27c6b0b5931227112299b560c86c104396d4b7aa2.php:246
+msgid "Total Colas"
+msgstr "Total Queues"
+
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:28
+msgid "Audios"
+msgstr "Audios"
+
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:54
+msgid "Subir audio"
+msgstr "Upload audio"
+
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:67
+msgid "Audio por extension"
+msgstr "Audio by extension"
+
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:85
+msgid "Audio por Nombre Audio"
+msgstr "Audio by Audio Name"
+
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:105
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:112
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:191
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:198
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:533
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:637
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:644
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:741
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:1258
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:1265
+msgid "Guardar"
+msgstr "Save"
+
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:119
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:212
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:651
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:660
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:756
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:1272
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:1279
+msgid "Cancelar"
+msgstr "Cancel"
+
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:136
+msgid "Llame a la extensión 7777777 y grabe su audio"
+msgstr "Call extension 7777777 and record your audio"
+
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:159
+msgid "Administrar informacion de Audios"
+msgstr "Manage Audios information"
+
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:168
+msgid "AÑADIR AUDIO"
+msgstr "ADD AUDIO"
+
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:213
+msgid "Reproducir"
+msgstr "Play"
+
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:230
+msgid "Editar Audio"
+msgstr "Edit Audio"
+
+#: cache/63/63d7b4dc40cba760108a4d317ac41372e92b670f16cd0fe599d241a081d7c929.php:237
+msgid "Eliminar audio"
+msgstr "Remove audio"
+
+#: cache/7c/7c1521aa2bf7ea908dc7d3143a018b4d197cd18a662d9e4853246a04f5519a0c.php:62
+msgid "Extension"
+msgstr "Extension"
+
+#: cache/7c/7c1521aa2bf7ea908dc7d3143a018b4d197cd18a662d9e4853246a04f5519a0c.php:74
+#: cache/f9/f9fc37e926b6319bf75e365345e5aea27ded4ac7328c11bcdebe377da950d0aa.php:83
+msgid "Clave"
+msgstr "Key"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:83
+msgid "Descripción"
+msgstr "Description"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:104
+msgid "Horarios de Atención"
+msgstr "Attention schedule"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:111
+msgid "Administrar informacion de horarios de atención"
+msgstr "Manage business hours information"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:120
+msgid "Añadir Horario"
+msgstr "Add Schedule"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:205
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:543
+msgid "Clonar"
+msgstr "Clone"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:230
+msgid "Lun"
+msgstr "Mon"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:237
+msgid "Mar"
+msgstr "Tues"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:244
+msgid "Mie"
+msgstr "Wed"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:251
+msgid "Jue"
+msgstr "Thu"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:258
+msgid "Vie"
+msgstr "Fri"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:265
+msgid "Sab"
+msgstr "Sat"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:272
+msgid "Dom"
+msgstr "Sun"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:279
+msgid "Festivo"
+msgstr "Festive"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:286
+msgid "Hora Inicio"
+msgstr "Start Time"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:293
+msgid "Hora Final"
+msgstr "Final hour"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:593
+msgid "Fechas no Laborales"
+msgstr "Non-Labor Dates"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:600
+msgid "Administrar información de fechas no laborales"
+msgstr "Manage non-work date information"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:609
+msgid "Añadir Excepción de horario"
+msgstr "Add Schedule Exception"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:681
+msgid "Fecha Inicio"
+msgstr "Start date"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:688
+msgid "Fecha Final"
+msgstr "Final date"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:793
+msgid "IVR Fuera Horario"
+msgstr "IVR Outside Hours"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:800
+msgid "Administrar información de IVR Fuera horario"
+msgstr "Manage IVR information After hours"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:821
+msgid "Fuera de Horario"
+msgstr "Out of time"
+
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:859
+#: cache/7c/7c8211476e507c36fc4835d26e64a97d1ea697dd7c224e132e0bf562c53fc2e0.php:866
+msgid "Cambiar ivr fuera de horario"
+msgstr "Change ivr after hours"
+
+#: cache/7e/7e44ecbfe41c128656f2640130346816c59aa35cc96ede02e9054a85a8785b81.php:42
+msgid "Asignar sucursales a"
+msgstr "Assign branches to"
+
+#: cache/7e/7e44ecbfe41c128656f2640130346816c59aa35cc96ede02e9054a85a8785b81.php:63
+#: cache/96/9640b7bc1826c6abbe4f00e5da6843511e6517dbf8247ba16a181196d8bb20ad.php:68
+msgid "Usuario"
+msgstr "User"
+
+#: cache/7e/7e44ecbfe41c128656f2640130346816c59aa35cc96ede02e9054a85a8785b81.php:97
+#: cache/7e/7e44ecbfe41c128656f2640130346816c59aa35cc96ede02e9054a85a8785b81.php:106
+#: cache/92/921bd9362d716b6a7192bb2e58cda37c771b2c301933a0f4d22a1aa9e05777eb.php:332
+#: cache/92/921bd9362d716b6a7192bb2e58cda37c771b2c301933a0f4d22a1aa9e05777eb.php:340
+#: cache/96/9640b7bc1826c6abbe4f00e5da6843511e6517dbf8247ba16a181196d8bb20ad.php:274
+#: cache/96/9640b7bc1826c6abbe4f00e5da6843511e6517dbf8247ba16a181196d8bb20ad.php:283
+#: cache/9f/9fe87d8a8a64f6be01ed58a34f9fd0a398f7070bb2c8c863e3d6ecacd3e504fc.php:174
+#: cache/9f/9fe87d8a8a64f6be01ed58a34f9fd0a398f7070bb2c8c863e3d6ecacd3e504fc.php:183
+#: cache/cc/cc30d51849d7d94f4661cc5799e0495bf45a01f869d6a2022b1e6fdcdf46a6ee.php:118
+#: cache/cc/cc30d51849d7d94f4661cc5799e0495bf45a01f869d6a2022b1e6fdcdf46a6ee.php:127
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:204
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:213
+#: cache/f9/f9fc37e926b6319bf75e365345e5aea27ded4ac7328c11bcdebe377da950d0aa.php:102
+#: cache/f9/f9fc37e926b6319bf75e365345e5aea27ded4ac7328c11bcdebe377da950d0aa.php:112
+msgid "GUARDAR"
+msgstr "SAVE"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:68
+msgid "CONFIGURACIÓN IVR"
+msgstr "IVR CONFIGURATION"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:84
+msgid "Añadir Opción"
+msgstr "Add Option"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:98
+msgid "Nombre Ivr"
+msgstr "Ivr name"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:133
+msgid "Opción"
+msgstr "Option"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:147
+#: cache/b5/b53c94061bf7d90ec18bad439bc00bb463dbf5a239e951a9bf61dbc78c919fbe.php:75
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:84
+msgid "Tiempo"
+msgstr "Time"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:332
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:406
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:416
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:1040
+msgid "Ir a Ivr"
+msgstr "Go to Ivr"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:343
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:496
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:506
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:1068
+msgid "Obtener Opción"
+msgstr "Get Option"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:354
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:429
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:437
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:1047
+msgid "Marcar Extensión"
+msgstr "Dial Extension"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:363
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:450
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:460
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:1054
+msgid "Marcar Teléfono"
+msgstr "Dial the telephone"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:372
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:473
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:483
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:1061
+msgid "Enviar a Cola"
+msgstr "Send to Cola"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:381
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:519
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:529
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:1075
+msgid "Reproducir Audio"
+msgstr "Play Audio"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:390
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:542
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:552
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:1082
+msgid "Programa"
+msgstr "Program"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:919
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:1244
+msgid "Subir prioridad"
+msgstr "Raise priority"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:926
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:1251
+msgid "Bajar prioridad"
+msgstr "Lower priority"
+
+#: cache/90/908d6ab8348d26c8b271521a3619bcb2f6aa53917904b437989237b4b6a5780d.php:943
+msgid "Eliminar opción ivr"
+msgstr "Remove ivr option"
+
+#: cache/92/921bd9362d716b6a7192bb2e58cda37c771b2c301933a0f4d22a1aa9e05777eb.php:42
+msgid "Actualizar Usuario"
+msgstr "Update User"
+
+#: cache/92/921bd9362d716b6a7192bb2e58cda37c771b2c301933a0f4d22a1aa9e05777eb.php:86
+#: cache/a8/a842a89ad9b6d6c626664f94186e07356e704014ce3437155424ebb242cdf924.php:75
+msgid "Nombre Cliente"
+msgstr "Client name"
+
+#: cache/92/921bd9362d716b6a7192bb2e58cda37c771b2c301933a0f4d22a1aa9e05777eb.php:101
+#: cache/a8/a842a89ad9b6d6c626664f94186e07356e704014ce3437155424ebb242cdf924.php:87
+msgid "Apellido Cliente"
+msgstr "Customer Last Name"
+
+#: cache/92/921bd9362d716b6a7192bb2e58cda37c771b2c301933a0f4d22a1aa9e05777eb.php:121
+#: cache/a8/a842a89ad9b6d6c626664f94186e07356e704014ce3437155424ebb242cdf924.php:134
+msgid "Teléfonos"
+msgstr "Phones"
+
+#: cache/92/921bd9362d716b6a7192bb2e58cda37c771b2c301933a0f4d22a1aa9e05777eb.php:136
+#: cache/92/921bd9362d716b6a7192bb2e58cda37c771b2c301933a0f4d22a1aa9e05777eb.php:186
+#: cache/92/921bd9362d716b6a7192bb2e58cda37c771b2c301933a0f4d22a1aa9e05777eb.php:209
+#: cache/a8/a842a89ad9b6d6c626664f94186e07356e704014ce3437155424ebb242cdf924.php:105
+#: cache/a8/a842a89ad9b6d6c626664f94186e07356e704014ce3437155424ebb242cdf924.php:152
+#: cache/cc/cc30d51849d7d94f4661cc5799e0495bf45a01f869d6a2022b1e6fdcdf46a6ee.php:100
+msgid "Teléfono"
+msgstr "Phone"
+
+#: cache/92/921bd9362d716b6a7192bb2e58cda37c771b2c301933a0f4d22a1aa9e05777eb.php:245
+#: cache/a8/a842a89ad9b6d6c626664f94186e07356e704014ce3437155424ebb242cdf924.php:179
+msgid "Direcciónes"
+msgstr "Addresses"
+
+#: cache/92/921bd9362d716b6a7192bb2e58cda37c771b2c301933a0f4d22a1aa9e05777eb.php:281
+#: cache/a8/a842a89ad9b6d6c626664f94186e07356e704014ce3437155424ebb242cdf924.php:195
+#: cache/bc/bcddd882bd6ada1a4ce38ffb9fb7d0f78c91c8e0b6b5bece26eb400d39b24ffc.php:74
+#: cache/c5/c527269b7546fcac012141907d2cf1aa11943575bcb204cc61f2e37d98663f09.php:141
+#: cache/cc/cc30d51849d7d94f4661cc5799e0495bf45a01f869d6a2022b1e6fdcdf46a6ee.php:83
+msgid "Dirección"
+msgstr "Direction"
+
+#: cache/96/9640b7bc1826c6abbe4f00e5da6843511e6517dbf8247ba16a181196d8bb20ad.php:42
+msgid "Editar Usuario"
+msgstr "Edit User"
+
+#: cache/96/9640b7bc1826c6abbe4f00e5da6843511e6517dbf8247ba16a181196d8bb20ad.php:100
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:115
+msgid "Correo"
+msgstr "Mail"
+
+#: cache/96/9640b7bc1826c6abbe4f00e5da6843511e6517dbf8247ba16a181196d8bb20ad.php:117
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:128
+msgid "Rol"
+msgstr "Role"
+
+#: cache/96/9640b7bc1826c6abbe4f00e5da6843511e6517dbf8247ba16a181196d8bb20ad.php:178
+#: cache/96/9640b7bc1826c6abbe4f00e5da6843511e6517dbf8247ba16a181196d8bb20ad.php:194
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:187
+msgid "Selecciona extensión"
+msgstr "Select extension"
+
+#: cache/96/9640b7bc1826c6abbe4f00e5da6843511e6517dbf8247ba16a181196d8bb20ad.php:225
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:216
+msgid "Asignar sucursal"
+msgstr "Assign Branch"
+
+#: cache/9f/9fe87d8a8a64f6be01ed58a34f9fd0a398f7070bb2c8c863e3d6ecacd3e504fc.php:42
+msgid "Editar producto"
+msgstr "Edit Product"
+
+#: cache/9f/9fe87d8a8a64f6be01ed58a34f9fd0a398f7070bb2c8c863e3d6ecacd3e504fc.php:73
+#: cache/9f/9fe87d8a8a64f6be01ed58a34f9fd0a398f7070bb2c8c863e3d6ecacd3e504fc.php:84
+msgid "Cambiar Imagen"
+msgstr "Change image"
+
+#: cache/ad/ad11c10f37b5d9406c38199a275fad4b8b6a0ec77228ea7e66e819b1a4f5e60f.php:44
+msgid "Listado de usuarios"
+msgstr "User List"
+
+#: cache/ad/ad11c10f37b5d9406c38199a275fad4b8b6a0ec77228ea7e66e819b1a4f5e60f.php:51
+msgid "Administrar los usuarios que tendrán acceso a la plataforma"
+msgstr "Manage users who will have access to the platform"
+
+#: cache/ad/ad11c10f37b5d9406c38199a275fad4b8b6a0ec77228ea7e66e819b1a4f5e60f.php:63
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:42
+msgid "Crear Usuario"
+msgstr "Create User"
+
+#: cache/ad/ad11c10f37b5d9406c38199a275fad4b8b6a0ec77228ea7e66e819b1a4f5e60f.php:227
+msgid "Total Usuarios"
+msgstr "Total Users"
+
+#: cache/b5/b53c94061bf7d90ec18bad439bc00bb463dbf5a239e951a9bf61dbc78c919fbe.php:92
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:104
+msgid "Reintentos"
+msgstr "Retries"
+
+#: cache/b5/b53c94061bf7d90ec18bad439bc00bb463dbf5a239e951a9bf61dbc78c919fbe.php:106
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:138
+msgid "Timbrar todos"
+msgstr "Ring all"
+
+#: cache/b5/b53c94061bf7d90ec18bad439bc00bb463dbf5a239e951a9bf61dbc78c919fbe.php:113
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:124
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:150
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:168
+msgid "Equitativo"
+msgstr "Equitable"
+
+#: cache/b5/b53c94061bf7d90ec18bad439bc00bb463dbf5a239e951a9bf61dbc78c919fbe.php:120
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:131
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:157
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:175
+msgid "Aleatorio"
+msgstr "Random"
+
+#: cache/bc/bcddd882bd6ada1a4ce38ffb9fb7d0f78c91c8e0b6b5bece26eb400d39b24ffc.php:42
+#: cache/c5/c527269b7546fcac012141907d2cf1aa11943575bcb204cc61f2e37d98663f09.php:63
+msgid "Crear Sucursal"
+msgstr "Create Branch"
+
+#: cache/bc/bcddd882bd6ada1a4ce38ffb9fb7d0f78c91c8e0b6b5bece26eb400d39b24ffc.php:62
+#: cache/cc/cc30d51849d7d94f4661cc5799e0495bf45a01f869d6a2022b1e6fdcdf46a6ee.php:68
+msgid "Nombre Sucursal"
+msgstr "Branch Name"
+
+#: cache/bc/bcddd882bd6ada1a4ce38ffb9fb7d0f78c91c8e0b6b5bece26eb400d39b24ffc.php:88
+msgid "Telefono"
+msgstr "Phone"
+
+#: cache/c5/c527269b7546fcac012141907d2cf1aa11943575bcb204cc61f2e37d98663f09.php:44
+msgid "Listado de sucursales"
+msgstr "Branch List"
+
+#: cache/c5/c527269b7546fcac012141907d2cf1aa11943575bcb204cc61f2e37d98663f09.php:51
+msgid "Administre las sucursales"
+msgstr "Manage the branches"
+
+#: cache/c5/c527269b7546fcac012141907d2cf1aa11943575bcb204cc61f2e37d98663f09.php:222
+msgid "Total Sucursales"
+msgstr "Total Branches"
+
+#: cache/cc/cc30d51849d7d94f4661cc5799e0495bf45a01f869d6a2022b1e6fdcdf46a6ee.php:42
+msgid "Editar Sucursal"
+msgstr "Edit Branch"
+
+#: cache/d7/d75eb557cfa0f00a7a54d2ba659c0647062f08c503b1e5f7c3a0fa9c1d498d0a.php:42
+msgid "Crear DID"
+msgstr "Create DID"
+
+#: cache/d7/d75eb557cfa0f00a7a54d2ba659c0647062f08c503b1e5f7c3a0fa9c1d498d0a.php:49
+msgid "Editar Complete los siguientes datos"
+msgstr "Editar Complete los siguientes datos"
+
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:42
+msgid "Editar cola"
+msgstr "Edit tail"
+
+#: cache/e3/e3c0c4f8637704611848a77c1ad3d7af93a53ec6f1c056103a7f745fadd800a3.php:182
+msgid "Timbrar"
+msgstr "Ring"
+
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:62
+msgid "Usuario (Inicio sesión)"
+msgstr "User (Login)"
+
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:89
+msgid "Contraseña"
+msgstr "Password"
+
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:102
+msgid "Repite Contraseña"
+msgstr "Repeat Password"
+
+#: cache/f1/f1f9621f7c32a26adff9ac077f63197f30698f8c8dfd7da19eec8fdeb171c5fc.php:136
+msgid "Selecciona Tipo usuario"
+msgstr "Select User Type"
+
+#: cache/f2/f2a9c1c7b2cbff0a605c3d2618370c7ad2dfba6baf44b6c034ff419f51143539.php:47
+msgid "Página"
+msgstr "Page"
+
+#: cache/f2/f2a9c1c7b2cbff0a605c3d2618370c7ad2dfba6baf44b6c034ff419f51143539.php:55
+msgid "de"
+msgstr "from"
+
+#: cache/f9/f9fc37e926b6319bf75e365345e5aea27ded4ac7328c11bcdebe377da950d0aa.php:42
+msgid "Editar Extensión"
+msgstr "Edit Extension"
+
+#~ msgid "'Actualización Exitosa'"
+#~ msgstr "'Successful Update'"
+
+#~ msgid "'Error en la creación'"
+#~ msgstr "'Creation error'"
+
+#~ msgid "'Error en la Eliminación'"
+#~ msgstr "'Elimination Error'"
+
+#~ msgid "'Error en la Actualización'"
+#~ msgstr "'Update Error'"
+
+#~ msgid "'Debe ingresar un Nombre'"
+#~ msgstr "'You must enter a Name'"
+
+#~ msgid "'Debe ingresar Tiempo Maximo'"
+#~ msgstr "'You must enter Maximum Time'"
+
+#~ msgid "'Debe Seleccionar un tipo de cola'"
+#~ msgstr "'You must select a queue type'"
+
+#~ msgid "'Debe ingrear un numero de intentos'"
+#~ msgstr "'Must enter a number of attempts'"
+
+#~ msgid "'cola Guardada'"
+#~ msgstr "'Saved queue'"
+
+#~ msgid "'Selecciona una cola antes de remover'"
+#~ msgstr "'Select a queue before removing'"
+
+#~ msgid "'Debe ingresar una identificación'"
+#~ msgstr "'You must enter an ID'"
+
+#~ msgid "'Debe ingresar un nombre'"
+#~ msgstr "'You must enter a name'"
+
+#~ msgid "'Debe ingresar un apellido'"
+#~ msgstr "'You must enter a last name'"
+
+#~ msgid "'Debe ingresar al menos  una dirección'"
+#~ msgstr "'You must enter at least one address'"
+
+#~ msgid "'Debe ingresar al menos  un teléfono'"
+#~ msgstr "'You must enter at least one phone'"
+
+#~ msgid "'Cliente Guardado'"
+#~ msgstr "'Saved Client'"
+
+#~ msgid "'Cliente Actualizado'"
+#~ msgstr "'Updated Client'"
+
+#~ msgid "'Cliente Eliminado'"
+#~ msgstr "'Client Deleted'"
+
+#~ msgid "'Debe ingresar un Did'"
+#~ msgstr "'You must enter a Did'"
+
+#~ msgid "'Debe de ingresar el nombre al ivr'"
+#~ msgstr "'You must enter the name at ivr'"
+
+#~ msgid "'Debe de ingresar una fecha de inicio'"
+#~ msgstr "'You must enter a start date'"
+
+#~ msgid "'Debe de ingresar una fecha final'"
+#~ msgstr "'You must enter an end date'"
+
+#~ msgid "'Debe ingresar una hora de inicio'"
+#~ msgstr "'You must enter a start time'"
+
+#~ msgid "'Debe ingresar una hora final'"
+#~ msgstr "'You must enter an end time'"
+
+#~ msgid "'Debe seleccionar un ivr para crear un horario'"
+#~ msgstr "'You must select an ivr to create a schedule'"
+
+#~ msgid "'Debe de agregar una opción'"
+#~ msgstr "'You must add an option'"
+
+#~ msgid "'Debe seleccionar un destino'"
+#~ msgstr "'You must select a destination'"
+
+#~ msgid "'Debe agregar el tiempo'"
+#~ msgstr "'You must add the time'"
+
+#~ msgid "'la hora inicial debe ser menor a la final'"
+#~ msgstr "'the start time must be less than the end time'"
+
+#~ msgid "'La extensión debe de estar entre 100 y 999'"
+#~ msgstr "'The extension must be between 100 and 999'"
+
+#~ msgid "'Did Guardado'"
+#~ msgstr "'Did Guardado'"
+
+#~ msgid "'Did ya existe'"
+#~ msgstr "'Did it already exist'"
+
+#~ msgid "'Seleccione al menos un día para el horario'"
+#~ msgstr "'Select at least one day for the schedule'"
+
+#~ msgid "'Existe un horario superpuesto a este, cambie el rango de horas'"
+#~ msgstr ""
+#~ "'There is a schedule superimposed on this, change the range of hours'"
+
+#~ msgid "'Horario superpuesto, Horario no actualizado'"
+#~ msgstr "'Overlay schedule, Schedule not update"
+
+#~ msgid "'Horario no registrado'"
+#~ msgstr "'Schedule not registered'"
+
+#~ msgid "'Horario registrado'"
+#~ msgstr "'Registered schedule'"
+
+#~ msgid "'Horario Eliminado'"
+#~ msgstr "'Schedule Eliminated'"
+
+#~ msgid "'La fecha inicial no debe ser mayor a la final'"
+#~ msgstr "'The initial date should not be greater than the final'"
+
+#~ msgid "'Horario no laboral registrado'"
+#~ msgstr "'Registered non-work schedule'"
+
+#~ msgid "'Está  a punto de eliminar este horario!'"
+#~ msgstr "'You are about to eliminate this schedule!'"
+
+#~ msgid "'Está  seguro que desea eliminarlo?'"
+#~ msgstr "'Are you sure you want to delete it?'"
+
+#~ msgid "'Si, Eliminar!'"
+#~ msgstr "'Yes, Delete!'"
+
+#~ msgid "'Está a punto de eliminar una Did!'"
+#~ msgstr "'You are about to delete a Did!'"
+
+#~ msgid "'Está seguro que desea eliminarlo?'"
+#~ msgstr "'Are you sure you want to delete it?'"
+
+#~ msgid "'Did eliminado'"
+#~ msgstr "'Did deleted'"
+
+#~ msgid "'Ivr con ese nombre ya existe'"
+#~ msgstr "'Ivr with that name already exists'"
+
+#~ msgid "'Está a punto de eliminar un Horario!'"
+#~ msgstr "'You are about to delete a Schedule!'"
+
+#~ msgid "'Horario no laboral, no registrado'"
+#~ msgstr "'Non-work hours, not registered'"
+
+#~ msgid "'Horario no laboral, no actualizado'"
+#~ msgstr "'Non-work schedule, not updated'"
+
+#~ msgid "'Ivr fuera de horario no actualizado'"
+#~ msgstr "'Ivr out of hours not updated'"
+
+#~ msgid "'Debe ingresar una extensión'"
+#~ msgstr "'You must enter an extension'"
+
+#~ msgid "'Ingresar una clave válida'"
+#~ msgstr "'Enter a valid password'"
+
+#~ msgid "'Extensión ya existe'"
+#~ msgstr "'Extension already exists'"
+
+#~ msgid "'Extensión Guardada'"
+#~ msgstr "'Saved Extension'"
+
+#~ msgid "'Extensión Actualizada'"
+#~ msgstr "'Updated Extension'"
+
+#~ msgid "'Extensión eliminada'"
+#~ msgstr "'Extension deleted'"
+
+#~ msgid "'Está apunto de eliminar una Extensión!'"
+#~ msgstr "'You are about to delete an Extension!'"
+
+#~ msgid "'Está seguro que desea eliminarla?'"
+#~ msgstr "'Are you sure you want to delete it?'"
+
+#~ msgid "'Debe ingresar una Dirección'"
+#~ msgstr "'You must enter an Address'"
+
+#~ msgid "'Debe ingresar un Teléfono'"
+#~ msgstr "'You must enter a Phone'"
+
+#~ msgid "'Sucursal ya existe'"
+#~ msgstr "'Branch already exists'"
+
+#~ msgid "'Sucursal Guardada'"
+#~ msgstr "'Saved Branch'"
+
+#~ msgid "'Actualizacion Exitosa'"
+#~ msgstr "'Successful Update'"
+
+#~ msgid "'Debe ingresar un usuario (Inicio Sesión)'"
+#~ msgstr "'You must enter a user (Login)'"
+
+#~ msgid "'Debe ingresar una contraseña'"
+#~ msgstr "'You must enter a password'"
+
+#~ msgid "'Debe repetir la contraseña'"
+#~ msgstr "'You must repeat the password'"
+
+#~ msgid "'Debe ingresar un de correo'"
+#~ msgstr "'You must enter an email'"
+
+#~ msgid "'Debe Seleccionar un tipo de usuario'"
+#~ msgstr "'You must select a user type'"
+
+#~ msgid "'Debe de seleccionar mínimo una sucursal'"
+#~ msgstr "'You must select at least one branch'"
+
+#~ msgid "'Contraseñas diferentes'"
+#~ msgstr "'Different passwords'"
+
+#~ msgid "'Usuario ya existe'"
+#~ msgstr "'User already exists'"
+
+#~ msgid "'Usuario Guardado'"
+#~ msgstr "'Saved User'"
+
+#~ msgid "'Está a punto de eliminar un usuario!'"
+#~ msgstr "'You are about to delete a user!'"
+
+#~ msgid "'Ingresar Nombre al Audio'"
+#~ msgstr "'Enter Name to Audio'"
+
+#~ msgid "'SELECCIONAR AUDIO'"
+#~ msgstr "'SELECT AUDIO'"
+
+#~ msgid "'QUITAR'"
+#~ msgstr "'REMOVE'"
+
+#~ msgid "'No se pudo clonar el ivr'"
+#~ msgstr "'Could not clone the ivr'"
+
+#~ msgid "'Nombre Ivr ya existe, Ivr no Guardado'"
+#~ msgstr "'Ivr name already exists, Ivr not saved'"
+
+#~ msgid "'Ivr no fué Guardado.'"
+#~ msgstr "'Ivr was not saved.'"
+
+#~ msgid "'Nombre ivr Guardado'"
+#~ msgstr "'Name ivr Saved'"
+
+#~ msgid "'Ivr Eliminado'"
+#~ msgstr "'Ivr Eliminated'"
+
+#~ msgid "'Existe un Ivr con el mismo nombre'"
+#~ msgstr "'There is an Ivr with the same name"
+
+#~ msgid "'Seleccione un ivr para registrar la opción'"
+#~ msgstr "'Select an ivr to register the option'"
+
+#~ msgid "'Está a punto de eliminar un ivr!'"
+#~ msgstr "'You are about to delete an ivr!'"
+
+#~ msgid "'Prioridad no Guardada'"
+#~ msgstr "'Priority Not Saved'"
+
+#~ msgid "'Debe ingresar un producto'"
+#~ msgstr "'You must enter a product'"
+
+#~ msgid "'Debe ingresar el precio del producto'"
+#~ msgstr "'You must enter the price of the product'"
+
+#~ msgid "'Debe ingresar al menos una etiqueta'"
+#~ msgstr "'You must enter at least one tag'"
+
+#~ msgid "'Esta apunto de eliminar una Extensión!'"
+#~ msgstr "'You are about to delete an Extension!'"
+
+#~ msgid "'Excepción de horario registrado'"
+#~ msgstr "'Registered schedule exception'"
+
+#~ msgid "\"Debe ingresar un producto\""
+#~ msgstr "'You must enter a product'"
+
+#~ msgid "\"Debe ingresar el precio del producto\""
+#~ msgstr "'You must enter the price of the product'"
+
+#~ msgid "\"Debe ingresar al menos una etiqueta\""
+#~ msgstr "'You must enter at least one tag'"
+
+#~ msgid "'Debe ingresar una identificacion'"
+#~ msgstr "'You must enter an identification'"
+
+#~ msgid "Usuario (logín)"
+#~ msgstr "User (Login)"
+
+#~ msgid "Recuperar Imagen"
+#~ msgstr "Recover Image"
+
+#~ msgid "Nombre Usuario"
+#~ msgstr "Username"
+
+#~ msgid "Total CREAR"
+#~ msgstr "Total CREATE"
+
+#~ msgid "Telefonos"
+#~ msgstr "Phones"
+
+#~ msgid "Direcciones"
+#~ msgstr "Addresses"
+
+#~ msgid "Direccion"
+#~ msgstr "Addresses"

@@ -1,0 +1,281 @@
+{% extends "baseDocument.twig" %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h2 class="mb-0">
+                                    {% if form_action == 'edit' %}
+                                        Editar Cotización #{{ cotizacion.id_cotizacion }} <i class="fas fa-edit ms-2"></i>
+                                    {% else %}
+                                        Crear Nueva Cotización <i class="fas fa-plus-circle ms-2"></i>
+                                    {% endif %}
+                                </h2>
+                            </div>
+                            <div class="col-4 text-end">
+                                <a href="?class=cotizaciones&action=list" class="btn btn-sm btn-secondary">
+                                    <i class="fas fa-arrow-left me-1"></i> Volver a la Lista
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        {# --- Formulario --- #}
+                        <form id="cotizacionForm" novalidate>
+                            {# ID Oculto para Editar #}
+                            {% if form_action == 'edit' %}
+                                <input type="hidden" class="js-cotizacion-id" value="{{ cotizacion.id_cotizacion }}">
+                            {% endif %}
+                            {% if form_action == 'edit' %}
+                                <h6 class="heading-small text-muted mb-4">Datos Editables</h6>
+                                <div class="alert alert-info small mb-3" role="alert">
+                                    <i class="fas fa-info-circle me-1"></i> Solo puedes modificar el Estado, la Vigencia y las Observaciones de esta cotización. Los exámenes incluidos no pueden ser alterados.
+                                </div>
+
+                                {# Mostrar Cliente (No editable) #}
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label fw-bold">Cliente</label>
+                                        <p class="form-control-plaintext">{{ cotizacion.nombre_usuario }} {{ cotizacion.apellido_usuario }} ({{ cotizacion.email_usuario }})</p>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label fw-bold">ID Cotización</label>
+                                        <p class="form-control-plaintext">#{{ cotizacion.id_cotizacion }}</p>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label fw-bold">Fecha Creación</label>
+                                        <p class="form-control-plaintext">{{ cotizacion.fecha_cotizacion | date('Y-m-d H:i') }}</p>
+                                    </div>
+                                </div>
+
+                                {# Campos Editables #}
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="input-estado" class="form-label">Estado <span class="text-danger">*</span></label>
+                                        <select id="input-estado" class="form-select js-estado" required>
+                                            {% set estados = ['Pendiente', 'Completada', 'Expirada'] %}
+                                            {% for estado in estados %}
+                                                <option value="{{ estado }}" {% if cotizacion.estado == estado %}selected{% endif %}>{{ estado }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <div class="invalid-feedback">Selecciona un estado válido.</div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="input-vigencia" class="form-label">Vigencia Hasta</label>
+                                        <input type="date" id="input-vigencia" class="form-control js-vigencia" value="{{ cotizacion.vigencia_hasta | default('') }}">
+                                        <div class="invalid-feedback">Ingresa una fecha válida (AAAA-MM-DD).</div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        {# Espacio libre o añadir otro campo si fuera necesario #}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="input-observaciones" class="form-label">Observaciones</label>
+                                        <textarea id="input-observaciones" rows="3" class="form-control js-observaciones" placeholder="Anotaciones internas o para el cliente (Opcional)">{{ cotizacion.observaciones | default('') }}</textarea>
+                                    </div>
+                                </div>
+
+
+
+                                {# --- SECCIÓN DE CREACIÓN (Solo para form_action == 'create') --- #}
+                            {% elseif form_action == 'create' %}
+                                <h6 class="heading-small text-muted mb-4">Datos Generales</h6>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="input-usuario" class="form-label">Cliente (Paciente) <span class="text-danger">*</span></label>
+                                        {# En modo edición, mostrar como texto o select deshabilitado #}
+                                        {% if form_action == 'edit' %}
+                                            <input type="text" class="form-control" value="{{ cotizacion.nombre_usuario }} {{ cotizacion.apellido_usuario }} ({{ cotizacion.email_usuario }})" readonly disabled>
+                                            {# Guardar ID del usuario para referencia si es necesario #}
+                                            <input type="hidden" class="js-usuario-id-display" value="{{ cotizacion.id_usuario }}">
+                                        {% else %}
+                                            {# En modo creación, un select para elegir paciente #}
+                                            <select id="input-usuario" class="form-select js-usuario" required>
+                                                <option value="" selected disabled>Selecciona un paciente...</option>
+                                                {# El controlador debe pasar 'lista_pacientes' => array de usuarios con rol paciente #}
+                                                {% for paciente in lista_pacientes %}
+                                                    <option value="{{ paciente.id_usuario }}">{{ paciente.apellido }}, {{ paciente.nombre }} ({{ paciente.documento }})</option>
+                                                {% endfor %}
+                                            </select>
+                                            <div class="invalid-feedback">Debes seleccionar un cliente.</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="input-vigencia" class="form-label">Vigencia Hasta</label>
+                                        <input type="date" id="input-vigencia" class="form-control js-vigencia" value="{{ cotizacion.vigencia_hasta | default('') }}">
+                                        <div class="invalid-feedback">Ingresa una fecha válida.</div>
+                                    </div>
+                                    {# Solo mostrar selector de estado en modo EDICIÓN #}
+                                    {% if form_action == 'edit' %}
+                                        <div class="col-md-3 mb-3">
+                                            <label for="input-estado" class="form-label">Estado <span class="text-danger">*</span></label>
+                                            <select id="input-estado" class="form-select js-estado" required>
+                                                {% set estados = ['Pendiente', 'Completada', 'Expirada'] %}
+                                                {% for estado in estados %}
+                                                    <option value="{{ estado }}" {% if cotizacion.estado == estado %}selected{% endif %}>{{ estado }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="input-observaciones" class="form-label">Observaciones</label>
+                                        <textarea id="input-observaciones" rows="3" class="form-control js-observaciones" placeholder="Anotaciones internas o para el cliente (Opcional)">{{ cotizacion.observaciones | default('') }}</textarea>
+                                    </div>
+                                </div>
+
+                                {# --- Sección de Exámenes (SOLO EN MODO CREACIÓN) --- #}
+                                {% if form_action == 'create' %}
+                                    <hr class="my-4">
+                                    <h6 class="heading-small text-muted mb-4">Añadir Exámenes</h6>
+                                    <div class="row g-3 align-items-end mb-3 p-3 border rounded bg-light">
+                                        <div class="col-md-6">
+                                            <label for="select-examen" class="form-label form-label-sm">Examen</label>
+                                            <select id="select-examen" class="form-select form-select-sm js-select-examen">
+                                                <option value="" data-precio="0">Selecciona un examen...</option>
+                                                {# Controlador pasa 'lista_examenes_activos' #}
+                                                {% for examen in lista_examenes_activos %}
+                                                    <option value="{{ examen.id_examen }}" data-precio="{{ examen.precio }}" data-nombre="{{ examen.nombre_examen }}" data-codigo="{{ examen.codigo_examen | default('N/A') }}">
+                                                        {{ examen.nombre_examen }} (${{ examen.precio | number_format(2, ',', '.') }})
+                                                    </option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="input-cantidad" class="form-label form-label-sm">Cantidad</label>
+                                            <input type="number" id="input-cantidad" class="form-control form-control-sm js-input-cantidad" value="1" min="1" step="1">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-sm btn-success w-100 js-add-examen">
+                                                <i class="fas fa-plus me-1"></i> Añadir a Cotización
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {# --- Tabla de Exámenes Añadidos --- #}
+                                    <h6 class="heading-small text-muted mb-2">Exámenes en la Cotización</h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-sm table-bordered" id="tabla-detalles">
+                                            <thead class="table-light">
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Nombre Examen</th>
+                                                <th class="text-center">Cant.</th>
+                                                <th class="text-end">Precio Unit.</th>
+                                                <th class="text-end">Subtotal</th>
+                                                <th class="text-center">Quitar</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {# Las filas se añadirán aquí con JavaScript #}
+                                            <tr id="fila-sin-items" class="d-none"> {# Oculta por defecto #}
+                                                <td colspan="6" class="text-center fst-italic">Aún no has añadido exámenes.</td>
+                                            </tr>
+                                            </tbody>
+                                            <tfoot>
+                                            <tr class="table-light">
+                                                <td colspan="4" class="text-end fw-bold">Total Cotización:</td>
+                                                <td class="text-end fw-bold" id="display-total">$0,00</td>
+                                                <td></td> {# Celda vacía para botón Quitar #}
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                {% endif %} {# Fin sección exámenes para modo creación #}
+                            {% endif %} {# Fin if form_action #}
+                            {# --- Mostrar detalles si estamos editando (solo lectura) --- #}
+                            {% if form_action == 'edit' %}
+                                <hr class="my-4">
+                                <h6 class="heading-small text-muted mb-4">Exámenes Incluidos (No modificables)</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-bordered">
+                                        <thead class="table-light">
+                                        <tr>
+                                            <th>Código Examen</th>
+                                            <th>Nombre Examen</th>
+                                            <th class="text-center">Cantidad</th>
+                                            <th class="text-end">Precio Unit. (Cotizado)</th>
+                                            <th class="text-end">Subtotal</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% if cotizacion.detalles is not empty %}
+                                            {% for detalle in cotizacion.detalles %}
+                                                <tr>
+                                                    <td>{{ detalle.codigo_examen | default('N/A') }}</td>
+                                                    <td>{{ detalle.nombre_examen }}</td>
+                                                    <td class="text-center">{{ detalle.cantidad }}</td>
+                                                    <td class="text-end">${{ detalle.precio_unitario_registrado | number_format(2, ',', '.') }}</td>
+                                                    <td class="text-end">${{ detalle.subtotal | number_format(2, ',', '.') }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% else %}
+                                            <tr><td colspan="5" class="text-center fst-italic">No hay exámenes asociados.</td></tr>
+                                        {% endif %}
+                                        </tbody>
+                                        {% if cotizacion.detalles is not empty %}
+                                            <tfoot>
+                                            <tr class="table-light">
+                                                <td colspan="4" class="text-end fw-bold">Precio Total Calculado:</td>
+                                                <td class="text-end fw-bold">${{ cotizacion.precio_total_calculado | default(0) | number_format(2, ',', '.') }}</td>
+                                            </tr>
+                                            </tfoot>
+                                        {% endif %}
+                                    </table>
+                                </div>
+                            {% endif %} {# Fin detalles modo edición #}
+
+
+                            {# Mensaje de error general #}
+                            <div id="form-error-message" class="alert alert-danger d-none mt-3" role="alert"></div>
+
+                            {# --- Botones de Acción --- #}
+                            <div class="text-end mt-4">
+                                <a href="?class=cotizaciones&action=list" class="btn btn-secondary me-2">
+                                    <i class="fas fa-times me-1"></i> Cancelar
+                                </a>
+                                {% if form_action == 'edit' %}
+                                    <button type="submit" class="btn btn-primary js-edit">
+                                        <i class="fas fa-save me-1"></i> Guardar Cambios
+                                    </button>
+                                {% else %}
+                                    <button type="submit" class="btn btn-success js-create">
+                                        <i class="fas fa-plus me-1"></i> Crear Cotización
+                                    </button>
+                                {% endif %}
+                            </div>
+                        </form>
+                        {# --- Fin Formulario --- #}
+                    </div> {# Fin card-body #}
+                </div> {# Fin card #}
+            </div> {# Fin col #}
+        </div> {# Fin row #}
+    </div> {# Fin container #}
+{% endblock %}
+
+{% block footer_scripts %}
+    <script>
+        const tipo = "{{ form_action }}"; // 'create' o 'edit'
+        const cotizacion_id = "{{ cotizacion.id_cotizacion | default(null) }}"; // ID si editamos
+
+        // Pasar la lista de exámenes a JS para la funcionalidad de añadir (solo si es create)
+        var examenesDisponibles = []; // Vacío si es edit
+
+        if (tipo==="create"){
+            examenesDisponibles = {{ lista_examenes_activos | json_encode | raw }};
+        }
+
+        // Función para formatear moneda (ejemplo simple)
+        function formatCurrency(value) {
+            return '$' + parseFloat(value).toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        }
+    </script>
+    <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/cotizacion.js"></script>
+{% endblock %}

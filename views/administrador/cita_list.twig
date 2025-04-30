@@ -1,0 +1,174 @@
+{% extends "baseDocument.twig" %} {# Ajusta el nombre de tu plantilla base #}
+
+{% block content %}
+    <div class="container-fluid mt-4"> {# Usar container-fluid para más ancho #}
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow mb-4">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h2 class="mb-0">Listado de Citas <i class="fas fa-list-alt ms-2"></i></h2>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                {# Botón para volver al Calendario #}
+                                <a href="?class=citas" class="btn btn-sm btn-outline-secondary me-2" title="Ver como Calendario">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </a>
+                                <a href="?class=citas&action=create" class="btn btn-sm btn-success">
+                                    <i class="fas fa-plus me-1"></i> Agendar Nueva Cita
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {# --- Área de Filtros --- #}
+                        {# Usamos method="GET" para que los filtros se reflejen en la URL #}
+                        <form method="get" action="" class="mb-4 border p-3 rounded bg-light">
+                            <input type="hidden" name="class" value="citas">
+                            {# ¡Importante! Asegúrate que la acción sea la correcta para esta vista #}
+                            <input type="hidden" name="action" value="list_view">
+                            <div class="row g-3 align-items-end">
+                                <div class="col-md-3">
+                                    <label for="filtro-fecha-desde" class="form-label form-label-sm">Fecha Desde</label>
+                                    {# El controlador pasa 'fecha_desde_filtro' con el valor actual o default #}
+                                    <input type="date" id="filtro-fecha-desde" name="fecha_desde" value="{{ fecha_desde_filtro | default('') }}" class="form-control form-control-sm">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="filtro-fecha-hasta" class="form-label form-label-sm">Fecha Hasta</label>
+                                    {# El controlador pasa 'fecha_hasta_filtro' con el valor actual o default #}
+                                    <input type="date" id="filtro-fecha-hasta" name="fecha_hasta" value="{{ fecha_hasta_filtro | default('') }}" class="form-control form-control-sm">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="filtro-estado" class="form-label form-label-sm">Estado</label>
+                                    <select id="filtro-estado" name="estado" class="form-select form-select-sm">
+                                        <option value="">Todos</option>
+                                        {# El controlador pasa 'estados_posibles' y 'estado_filtro' #}
+                                        {% for estado in estados_posibles %}
+                                            <option value="{{ estado }}" {% if estado_filtro == estado %}selected{% endif %}>{{ estado }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                {# TODO: Añadir filtros para Paciente y Examen si es necesario #}
+                                {# Ejemplo:
+                             <div class="col-md-3">
+                                 <label for="filtro-paciente-nombre" class="form-label form-label-sm">Paciente</label>
+                                 <input type="text" id="filtro-paciente-nombre" name="search_paciente" value="{{ app.request.query.get('search_paciente') | default('') }}" class="form-control form-control-sm" placeholder="Nombre, Apellido...">
+                             </div>
+                                #}
+                                <div class="col-md-3">
+                                    <button class="btn btn-sm btn-primary w-100" type="submit">
+                                        <i class="fas fa-filter me-1"></i> Filtrar / Actualizar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        {# --- Fin Filtros --- #}
+
+                        {# --- Tabla de Citas --- #}
+                        <div class="table-responsive">
+                            <table class="table table-sm align-items-center table-flush table-hover"> {# table-sm para más compacta #}
+                                <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Paciente</th>
+                                    <th scope="col">Documento</th>
+                                    <th scope="col">Examen</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col" class="text-end">Acciones</th>
+                                </tr>
+                                </thead>
+                                <tbody class="list">
+                                {# El controlador debe pasar la variable 'citas' #}
+                                {% for cita in citas %}
+                                    <tr data-id="{{ cita.id_cita }}">
+                                        <td>#{{ cita.id_cita }}</td>
+                                        <td>{{ cita.fecha_cita | date('Y-m-d') }}</td>
+                                        <td>{{ cita.hora_cita | date('H:i') }}</td> {# Formato HH:MM #}
+                                        <td>{{ cita.apellido_paciente | default('N/A') }}, {{ cita.nombre_paciente | default('N/A') }}</td>
+                                        <td>{{ cita.documento_paciente | default('N/A') }}</td>
+                                        <td>{{ cita.nombre_examen | default('N/A') }}</td>
+                                        <td>
+                                            {# Badge de Estado #}
+                                            {% set badge_class = 'secondary' %} {# Default #}
+                                            {% set estado_lower = cita.estado | lower | replace({' ': '_'}) %}
+                                            {% if estado_lower == 'programada' %} {% set badge_class = 'info text-dark' %}
+                                            {% elseif estado_lower == 'confirmada' %} {% set badge_class = 'primary' %}
+                                            {% elseif estado_lower == 'realizada' %} {% set badge_class = 'success' %}
+                                            {% elseif estado_lower starts with 'cancelada' %} {% set badge_class = 'danger' %}
+                                            {% elseif estado_lower == 'no_asistio' %} {% set badge_class = 'secondary' %}
+                                            {% endif %}
+                                            <span class="badge bg-{{ badge_class }}">{{ cita.estado }}</span>
+                                        </td>
+                                        <td class="text-end">
+                                            {# Ver Detalles #}
+                                            <a href="?class=citas&action=view&id={{ cita.id_cita }}"
+                                               data-bs-toggle="tooltip" data-bs-placement="top"
+                                               title="Ver Detalles"
+                                               class="btn btn-sm btn-light me-1">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            {# Editar/Reprogramar #}
+                                            <a href="?class=citas&action=edit&id={{ cita.id_cita }}"
+                                               data-bs-toggle="tooltip" data-bs-placement="top"
+                                               title="Editar/Reprogramar Cita"
+                                               class="btn btn-sm btn-info me-1">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            {# Cambiar Estado (Dropdown rápido) #}
+                                            <select class="form-select form-select-sm d-inline-block w-auto js-change-status-list me-1"
+                                                    data-id="{{ cita.id_cita }}"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Cambiar Estado Rápido">
+                                                <option value="">Estado...</option>
+                                                {% for estado in estados_posibles %}
+                                                    {# No mostrar el estado actual como opción seleccionable inicial #}
+                                                    {% if estado != cita.estado %}
+                                                        <option value="{{ estado }}">{{ estado }}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                            {# Botón Cancelar (Eliminar Lógico) #}
+{#                                            <button type="button"#}
+{#                                                    data-bs-toggle="tooltip" data-bs-placement="top"#}
+{#                                                    title="Cancelar Cita"#}
+{#                                                    class="btn btn-sm btn-danger jsCancel"#}
+{#                                                    data-id="{{ cita.id_cita }}"#}
+{#                                                    data-info="#{{ cita.id_cita }} - {{ cita.apellido_paciente }}">  Info para confirmación#}
+{#                                                <i class="fas fa-calendar-times"></i>#}
+{#                                            </button>#}
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="8" class="text-center fst-italic py-3">No se encontraron citas con los filtros aplicados.</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {# --- Fin Tabla --- #}
+
+                        {# --- Paginación --- #}
+                        {# {% include 'layout/pagination.twig' with {'pagination': paginacion} %} #}
+
+                    </div> {# Fin card-body #}
+                </div> {# Fin card #}
+            </div> {# Fin col #}
+        </div> {# Fin row #}
+    </div> {# Fin container #}
+{% endblock %}
+
+{% block footer_scripts %}
+    <script>
+        const tipo = "list"; // Indica que estamos en la vista de lista
+        // Pasar variables necesarias al JS
+        const citaHandlerUrl = '{{ general.full_web_url }}ajax/admin/cita_handler.php';
+        const currentAdminUserId = {{ general.id_session }}; // ID del admin/aux logueado
+        const ESTADOS_CITA_JS = {{ estados_posibles | json_encode | raw }};
+    </script>
+    {# Incluir el JS específico para citas (manejará jsCancel y js-change-status-list) #}
+    <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/cita.js"></script>
+{% endblock %}

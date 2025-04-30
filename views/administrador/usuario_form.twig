@@ -1,0 +1,171 @@
+{% extends "baseDocument.twig" %} {# Ajusta el nombre de tu plantilla base #}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1"> {# Centrar un poco el formulario #}
+                <div class="card shadow">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                {# Título dinámico basado en la acción #}
+                                <h2 class="mb-0">
+                                    {% if form_action == 'edit' %}
+                                        Editar Usuario <i class="fas fa-user-edit ms-2"></i>
+                                    {% else %}
+                                        Crear Nuevo Usuario <i class="fas fa-user-plus ms-2"></i>
+                                    {% endif %}
+                                </h2>
+                            </div>
+                            <div class="col-4 text-end">
+                                <a href="?class=usuarios&action=list" class="btn btn-sm btn-secondary"> {# Cambiado a secondary #}
+                                    <i class="fas fa-arrow-left me-1"></i> Volver a la Lista
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {# --- Formulario --- #}
+                        {# novalidate para usar validación JS/Backend en lugar de la del navegador #}
+                        <form id="usuarioForm" novalidate>
+                            {# Campo oculto para el ID en modo edición #}
+                            {% if form_action == 'edit' %}
+                                <input type="hidden" class="js-user-id" value="{{ usuario.id_usuario | default('') }}">
+                            {% endif %}
+
+                            <h6 class="heading-small text-muted mb-4">Información Personal</h6>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-nombre" class="form-label">Nombres <span class="text-danger">*</span></label>
+                                    <input type="text" id="input-nombre" class="form-control js-nombre" placeholder="Nombre(s)" value="{{ usuario.nombre | default('') }}" required>
+                                    <div class="invalid-feedback">Por favor ingresa el nombre.</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-apellido" class="form-label">Apellidos <span class="text-danger">*</span></label>
+                                    <input type="text" id="input-apellido" class="form-control js-apellido" placeholder="Apellido(s)" value="{{ usuario.apellido | default('') }}" required>
+                                    <div class="invalid-feedback">Por favor ingresa los apellidos.</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-tipo-documento" class="form-label">Tipo Documento <span class="text-danger">*</span></label>
+                                    <select id="input-tipo-documento" class="form-select js-tipo-documento" required>
+                                        <option value="" disabled {% if not usuario %}selected{% endif %}>Selecciona...</option>
+                                        {% set tipos_doc = ['CC', 'CE', 'TI', 'PAS'] %}
+                                        {% for tipo in tipos_doc %}
+                                            <option value="{{ tipo }}" {% if usuario.tipo_documento == tipo %}selected{% endif %}>{{ tipo }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <div class="invalid-feedback">Selecciona un tipo de documento.</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-documento" class="form-label">Número Documento <span class="text-danger">*</span></label>
+                                    <input type="text" id="input-documento" class="form-control js-documento" placeholder="Número de identificación" value="{{ usuario.documento | default('') }}" required>
+                                    <div class="invalid-feedback">Ingresa el número de documento.</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-fecha-nacimiento" class="form-label">Fecha de Nacimiento</label>
+                                    <input type="date" id="input-fecha-nacimiento" class="form-control js-fecha-nacimiento" value="{{ usuario.fecha_nacimiento | default('') }}">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-eps" class="form-label">EPS</label>
+                                    <input type="text" id="input-eps" class="form-control js-eps" placeholder="Nombre EPS (Opcional)" value="{{ usuario.eps | default('') }}">
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+                            <h6 class="heading-small text-muted mb-4">Información de Contacto y Cuenta</h6>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-email" class="form-label">Correo Electrónico <span class="text-danger">*</span></label>
+                                    <input type="email" id="input-email" class="form-control js-email" placeholder="usuario@email.com" value="{{ usuario.email | default('') }}" required>
+                                    <div class="invalid-feedback">Ingresa un correo electrónico válido.</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-telefono" class="form-label">Teléfono</label>
+                                    <input type="tel" id="input-telefono" class="form-control js-telefono" placeholder="Número de teléfono" value="{{ usuario.telefono | default('') }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="input-direccion" class="form-label">Dirección</label>
+                                    <textarea id="input-direccion" rows="2" class="form-control js-direccion" placeholder="Dirección de residencia">{{ usuario.direccion | default('') }}</textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-rol" class="form-label">Rol <span class="text-danger">*</span></label>
+                                    <select id="input-rol" class="form-select js-rol" required>
+                                        <option value="" disabled {% if not usuario %}selected{% endif %}>Selecciona un rol...</option>
+                                        {# El controlador debe pasar 'roles_disponibles' como array [id_rol => nombre_rol] o [ {'id_rol': X, 'nombre_rol': Y}, ...] #}
+                                        {% for rol in roles_disponibles %}
+                                            <option value="{{ rol.id_rol }}" {% if usuario.id_rol == rol.id_rol %}selected{% endif %}>{{ rol.nombre_rol }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <div class="invalid-feedback">Selecciona un rol para el usuario.</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-activo" class="form-label">Estado <span class="text-danger">*</span></label>
+                                    <select id="input-activo" class="form-select js-activo" required>
+                                        <option value="1" {% if usuario is null or usuario.activo == 1 %}selected{% endif %}>Activo</option>
+                                        <option value="0" {% if usuario and usuario.activo == 0 %}selected{% endif %}>Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-password" class="form-label">
+                                        Contraseña
+                                        {% if form_action == 'create' %}<span class="text-danger">*</span>{% endif %}
+                                        {% if form_action == 'edit' %}<span class="text-muted small">(Dejar en blanco para no cambiar)</span>{% endif %}
+                                    </label>
+                                    <input type="password" id="input-password" class="form-control js-password" placeholder="********" {% if form_action == 'create' %}required{% endif %}>
+                                    <div class="invalid-feedback">La contraseña es requerida (mínimo 6 caracteres).</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-password-confirm" class="form-label">Confirmar Contraseña</label>
+                                    <input type="password" id="input-password-confirm" class="form-control js-password-confirm" placeholder="********">
+                                    <div class="invalid-feedback">Las contraseñas no coinciden.</div>
+                                </div>
+                            </div>
+
+                            {# Mensaje de error general del backend #}
+                            <div id="form-error-message" class="alert alert-danger d-none mt-3" role="alert"></div>
+
+                            {# --- Botones de Acción --- #}
+                            <div class="text-end mt-4">
+                                <a href="?class=usuarios&action=list" class="btn btn-secondary me-2">
+                                    <i class="fas fa-times me-1"></i> Cancelar
+                                </a>
+                                {# Botón cambia según la acción #}
+                                {% if form_action == 'edit' %}
+                                    <button type="submit" class="btn btn-primary js-edit">
+                                        <i class="fas fa-save me-1"></i> Guardar Cambios
+                                    </button>
+                                {% else %}
+                                    <button type="submit" class="btn btn-success js-create"> {# Cambiado a btn-success #}
+                                        <i class="fas fa-plus me-1"></i> Crear Usuario
+                                    </button>
+                                {% endif %}
+                            </div>
+                        </form>
+                        {# --- Fin Formulario --- #}
+                    </div> {# Fin card-body #}
+                </div> {# Fin card #}
+            </div> {# Fin col #}
+        </div> {# Fin row #}
+    </div> {# Fin container #}
+{% endblock %}
+
+{% block footer_scripts %}
+    <script>
+        // Pasar datos al JS
+        const tipo = "{{ form_action }}"; // 'create' o 'edit'
+        const user_id = "{{ usuario.id_usuario | default(null) }}"; // ID del usuario si estamos editando
+    </script>
+    {# Incluir el JS específico para usuarios #}
+    <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/usuario.js"></script>
+{% endblock %}

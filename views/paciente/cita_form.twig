@@ -1,0 +1,128 @@
+{% extends "baseDocument.twig" %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h2 class="mb-0">
+                                    {% if form_action == 'edit' %}
+                                        Reagendar Cita #{{ cita.id_cita }}
+                                    {% else %}
+                                        Agendar Nueva Cita
+                                    {% endif %}
+                                    <i class="fas fa-calendar-plus ms-2"></i>
+                                </h2>
+                            </div>
+                            <div class="col-4 text-end">
+                                <a href="?class=citas" class="btn btn-sm btn-secondary">
+                                    <i class="fas fa-arrow-left me-1"></i> Volver a Mis Citas
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {# Mostrar advertencia si no se puede modificar en modo edición #}
+                        {% if form_action == 'edit' and not puede_modificar %}
+                            <div class="alert alert-warning" role="alert">
+                                <i class="fas fa-exclamation-triangle me-1"></i>
+                                Esta cita ya no puede ser reagendada ni cancelada porque faltan menos de 24 horas o ya ha pasado.
+                            </div>
+                        {% endif %}
+
+                        {# --- Formulario --- #}
+                        {# Deshabilitar todo si no se puede modificar #}
+                        <form id="citaForm" novalidate {% if form_action == 'edit' and not puede_modificar %}inert{% endif %}>
+                            {% if form_action == 'edit' %}
+                                <input type="hidden" class="js-cita-id" value="{{ cita.id_cita }}">
+                            {% endif %}
+                            {# ID Paciente oculto (siempre el logueado) #}
+                            <input type="hidden" class="js-paciente-id" value="{{ id_paciente_actual }}">
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Paciente</label>
+                                    {# Mostrar nombre del paciente logueado - no editable #}
+                                    <p class="form-control-plaintext fw-bold">{{ app.session.get('user_name') | default('Usuario Actual') }}</p> {# Asume que guardas user_name en sesión #}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="select-examen" class="form-label">Examen <span class="text-danger">*</span></label>
+                                    <select id="select-examen" class="form-select js-examen" required {% if form_action == 'edit' %}disabled{% endif %}>
+                                        <option value="" {% if not cita %}selected{% endif %} disabled>Selecciona un examen...</option>
+                                        {% for e in lista_examenes_activos %}
+                                            {# Si es edición, el examen actual ya está en la lista #}
+                                            <option value="{{ e.id_examen }}" {% if cita.id_examen == e.id_examen %}selected{% endif %}>
+                                                {{ e.nombre_examen }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                    {% if form_action == 'edit' %}<small class="text-muted">No se puede cambiar el examen al reagendar.</small>{% endif %}
+                                    <div class="invalid-feedback">Debes seleccionar un examen.</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-fecha" class="form-label">Nueva Fecha <span class="text-danger">*</span></label>
+                                    {# Podrías añadir min="{{ "now"|date("Y-m-d") }}" para evitar fechas pasadas #}
+                                    <input type="date" id="input-fecha" class="form-control js-fecha" value="{{ cita.fecha_cita | default('') }}" required min="{{ "now"|date("Y-m-d") }}">
+                                    <div class="invalid-feedback">Selecciona una fecha válida (futura).</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="input-hora" class="form-label">Nueva Hora <span class="text-danger">*</span></label>
+                                    <input type="time" id="input-hora" class="form-control js-hora" value="{{ cita.hora_cita | default('') }}" required step="900"> {# step="900" = 15 min #}
+                                    <div class="invalid-feedback">Selecciona una hora válida.</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="input-obs-paciente" class="form-label">Observaciones para la Cita</label>
+                                    <textarea id="input-obs-paciente" rows="3" class="form-control js-observaciones-paciente" placeholder="Ej: Alergias, medicamentos actuales, etc. (Opcional)">{{ cita.observaciones_paciente | default('') }}</textarea>
+                                </div>
+                            </div>
+                            {# No mostrar Estado ni Observaciones Internas al paciente #}
+
+                            {# Mensaje de error general #}
+                            <div id="form-error-message" class="alert alert-danger d-none mt-3" role="alert"></div>
+
+                            {# --- Botones --- #}
+                            <div class="text-end mt-4">
+                                <a href="?class=citas" class="btn btn-secondary me-2">
+                                    <i class="fas fa-times me-1"></i> Cancelar
+                                </a>
+                                {# El botón cambia y se deshabilita si no puede modificar #}
+                                {% if form_action == 'edit' %}
+                                    <button type="submit" class="btn btn-primary js-edit" {% if not puede_modificar %}disabled title="No se puede modificar esta cita (menos de 24h o estado final)"{% endif %}>
+                                        <i class="fas fa-save me-1"></i> Guardar Cambios
+                                    </button>
+                                {% else %}
+                                    <button type="submit" class="btn btn-success js-create">
+                                        <i class="fas fa-calendar-plus me-1"></i> Agendar Cita
+                                    </button>
+                                {% endif %}
+                            </div>
+
+                        </form>
+                        {# --- Fin Formulario --- #}
+                    </div> {# Fin Card Body #}
+                </div> {# Fin Card #}
+            </div> {# Fin Col #}
+        </div> {# Fin Row #}
+    </div> {# Fin Container #}
+{% endblock %}
+
+{% block footer_scripts %}
+    <script>
+        const tipo = "{{ form_action }}"; // 'create' o 'edit'
+        const cita_id = "{{ cita.id_cita | default(null) }}"; // ID si editamos
+        const currentPatientId = {{ general.id_session }}; // ID paciente logueado
+        const citaHandlerUrl = '{{ general.full_web_url }}ajax/paciente/cita_handler.php'; // Handler específico
+        const listCitasUrl = '{{ general.full_web_url }}?class=citas&action=list'; // Volver a la lista
+        // Pasar lista de exámenes podría ser útil si se habilita cambio de examen en edit
+        // const listaExamenesJS = {{ lista_examenes_activos | json_encode | raw }};
+    </script>
+    <script type="text/javascript" src="{{ general.full_assets_url }}js/paciente/paciente_cita.js"></script> {# JS específico #}
+{% endblock %}
