@@ -6,7 +6,7 @@
 # Node artifact files
 
 config.php
-# Compiled Java class files
+# Compiled Java class files ...
 *.class
 temp
 # Compiled Python bytecode
